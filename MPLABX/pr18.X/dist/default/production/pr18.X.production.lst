@@ -1,0 +1,3249 @@
+
+
+Microchip Technology PIC LITE Macro Assembler V1.21 build 54009 
+                                                                                               Wed Jul 22 14:15:39 2015
+
+Microchip Technology Omniscient Code Generator (Lite mode) build 54009
+     1                           	processor	16F876A
+     2                           	opt	pw 120
+     3                           	opt	lm
+     4                           	psect	strings,global,class=STRING,delta=2
+     5                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     6                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+     7                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     8                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+     9                           	psect	maintext,global,class=CODE,split=1,delta=2
+    10                           	psect	text1,local,class=CODE,merge=1,delta=2
+    11                           	psect	text2,local,class=CODE,merge=1,delta=2
+    12                           	psect	text3,local,class=CODE,merge=1,delta=2
+    13                           	psect	text4,local,class=CODE,merge=1,delta=2
+    14                           	psect	text5,local,class=CODE,merge=1,delta=2
+    15                           	psect	text6,local,class=CODE,merge=1,delta=2
+    16                           	psect	text7,local,class=CODE,merge=1,delta=2
+    17                           	psect	text8,local,class=CODE,merge=1,delta=2
+    18                           	psect	text9,local,class=CODE,merge=1,delta=2
+    19                           	psect	text10,local,class=CODE,merge=1,delta=2
+    20                           	psect	text11,local,class=CODE,merge=1,delta=2
+    21                           	psect	text12,local,class=CODE,merge=1,delta=2
+    22                           	dabs	1,0x7E,2
+    23  0000                     	;# 
+    24  0001                     	;# 
+    25  0002                     	;# 
+    26  0003                     	;# 
+    27  0004                     	;# 
+    28  0005                     	;# 
+    29  0006                     	;# 
+    30  0007                     	;# 
+    31  000A                     	;# 
+    32  000B                     	;# 
+    33  000C                     	;# 
+    34  000D                     	;# 
+    35  000E                     	;# 
+    36  000E                     	;# 
+    37  000F                     	;# 
+    38  0010                     	;# 
+    39  0011                     	;# 
+    40  0012                     	;# 
+    41  0013                     	;# 
+    42  0014                     	;# 
+    43  0015                     	;# 
+    44  0015                     	;# 
+    45  0016                     	;# 
+    46  0017                     	;# 
+    47  0018                     	;# 
+    48  0019                     	;# 
+    49  001A                     	;# 
+    50  001B                     	;# 
+    51  001B                     	;# 
+    52  001C                     	;# 
+    53  001D                     	;# 
+    54  001E                     	;# 
+    55  001F                     	;# 
+    56  0081                     	;# 
+    57  0085                     	;# 
+    58  0086                     	;# 
+    59  0087                     	;# 
+    60  008C                     	;# 
+    61  008D                     	;# 
+    62  008E                     	;# 
+    63  0091                     	;# 
+    64  0092                     	;# 
+    65  0093                     	;# 
+    66  0094                     	;# 
+    67  0098                     	;# 
+    68  0099                     	;# 
+    69  009C                     	;# 
+    70  009D                     	;# 
+    71  009E                     	;# 
+    72  009F                     	;# 
+    73  010C                     	;# 
+    74  010D                     	;# 
+    75  010E                     	;# 
+    76  010F                     	;# 
+    77  018C                     	;# 
+    78  018D                     	;# 
+    79  0017                     _CCP1CON	set	23
+    80  001D                     _CCP2CON	set	29
+    81  0015                     _CCPR1L	set	21
+    82  001B                     _CCPR2L	set	27
+    83  0006                     _PORTB	set	6
+    84  0012                     _T2CON	set	18
+    85  0019                     _TXREG	set	25
+    86  00C4                     _CREN	set	196
+    87  0028                     _RA0	set	40
+    88  0029                     _RA1	set	41
+    89  002A                     _RA2	set	42
+    90  003B                     _RC3	set	59
+    91  003C                     _RC4	set	60
+    92  003D                     _RC5	set	61
+    93  00C7                     _SPEN	set	199
+    94  0064                     _TXIF	set	100
+    95  009F                     _ADCON1	set	159
+    96  0092                     _PR2	set	146
+    97  0099                     _SPBRG	set	153
+    98  0085                     _TRISA	set	133
+    99  0086                     _TRISB	set	134
+   100  0087                     _TRISC	set	135
+   101  04C2                     _BRGH	set	1218
+   102  04C5                     _TXEN	set	1221
+   103                           
+   104                           	psect	strings
+   105  0003                     __pstrings:	
+   106  0003                     stringtab:	
+   107  0003                     __stringtab:	
+   108  0003                     stringcode:	
+   109                           ;	String table - string pointers are 1 byte each
+   110                           
+   111  0003                     stringdir:	
+   112  0003  3000               	movlw	high stringdir
+   113  0004  008A               	movwf	10
+   114  0005  0804               	movf	4,w
+   115  0006  0A84               	incf	4,f
+   116  0007  0782               	addwf	2,f
+   117  0008                     __stringbase:	
+   118  0008  3400               	retlw	0
+   119  0009                     __end_of__stringtab:	
+   120  0009                     __stringdata:	
+   121  0009                     STR_5:	
+   122  0009  3443               	retlw	67	;'C'
+   123  000A  3461               	retlw	97	;'a'
+   124  000B  346C               	retlw	108	;'l'
+   125  000C  3469               	retlw	105	;'i'
+   126  000D  3462               	retlw	98	;'b'
+   127  000E  3472               	retlw	114	;'r'
+   128  000F  3461               	retlw	97	;'a'
+   129  0010  3474               	retlw	116	;'t'
+   130  0011  3469               	retlw	105	;'i'
+   131  0012  346F               	retlw	111	;'o'
+   132  0013  346E               	retlw	110	;'n'
+   133  0014  343F               	retlw	63	;'?'
+   134  0015  3420               	retlw	32	;' '
+   135  0016  3420               	retlw	32	;' '
+   136  0017  3400               	retlw	0
+   137  0018                     STR_4:	
+   138  0018  3442               	retlw	66	;'B'
+   139  0019  3469               	retlw	105	;'i'
+   140  001A  3470               	retlw	112	;'p'
+   141  001B  3465               	retlw	101	;'e'
+   142  001C  3464               	retlw	100	;'d'
+   143  001D  3420               	retlw	32	;' '
+   144  001E  3457               	retlw	87	;'W'
+   145  001F  3461               	retlw	97	;'a'
+   146  0020  346C               	retlw	108	;'l'
+   147  0021  346B               	retlw	107	;'k'
+   148  0022  3469               	retlw	105	;'i'
+   149  0023  346E               	retlw	110	;'n'
+   150  0024  3467               	retlw	103	;'g'
+   151  0025  343F               	retlw	63	;'?'
+   152  0026  3400               	retlw	0
+   153  0027                     STR_1:	
+   154  0027  3443               	retlw	67	;'C'
+   155  0028  3479               	retlw	121	;'y'
+   156  0029  3474               	retlw	116	;'t'
+   157  002A  3472               	retlw	114	;'r'
+   158  002B  346F               	retlw	111	;'o'
+   159  002C  346E               	retlw	110	;'n'
+   160  002D  3420               	retlw	32	;' '
+   161  002E  3454               	retlw	84	;'T'
+   162  002F  3465               	retlw	101	;'e'
+   163  0030  3463               	retlw	99	;'c'
+   164  0031  3468               	retlw	104	;'h'
+   165  0032  342E               	retlw	46	;'.'
+   166  0033  3400               	retlw	0
+   167  0034                     STR_7:	
+   168  0034  3443               	retlw	67	;'C'
+   169  0035  3468               	retlw	104	;'h'
+   170  0036  3461               	retlw	97	;'a'
+   171  0037  346E               	retlw	110	;'n'
+   172  0038  346E               	retlw	110	;'n'
+   173  0039  3465               	retlw	101	;'e'
+   174  003A  346C               	retlw	108	;'l'
+   175  003B  343A               	retlw	58	;':'
+   176  003C  3400               	retlw	0
+   177  003D                     STR_9:	
+   178  003D  3456               	retlw	86	;'V'
+   179  003E  3461               	retlw	97	;'a'
+   180  003F  346C               	retlw	108	;'l'
+   181  0040  3475               	retlw	117	;'u'
+   182  0041  3465               	retlw	101	;'e'
+   183  0042  343A               	retlw	58	;':'
+   184  0043  3420               	retlw	32	;' '
+   185  0044  3400               	retlw	0
+   186  0045                     STR_2:	
+   187  0045  3450               	retlw	80	;'P'
+   188  0046  3452               	retlw	82	;'R'
+   189  0047  3431               	retlw	49	;'1'
+   190  0048  3438               	retlw	56	;'8'
+   191  0049  3400               	retlw	0
+   192  004A                     STR_3:	
+   193  004A  344F               	retlw	79	;'O'
+   194  004B  344B               	retlw	75	;'K'
+   195  004C  3400               	retlw	0
+   196  004D                     __end_of__stringdata:	
+   197                           
+   198                           ; #config settings
+   199  0000                     
+   200                           	psect	cinit
+   201  07FB                     start_initialization:	
+   202  07FB                     __initialization:	
+   203                           
+   204                           ; Clear objects allocated to BANK0
+   205  07FB  01AA               	clrf	__pbssBANK0& (0+127)
+   206  07FC                     end_of_initialization:	
+   207                           ;End of C runtime variable initialization code
+   208                           
+   209  07FC                     __end_of__initialization:	
+   210  07FC  0183               	clrf	3
+   211  07FD  120A  118A  2A5B   	ljmp	_main	;jump to C main() function
+   212                           
+   213                           	psect	bssBANK0
+   214  002A                     __pbssBANK0:	
+   215  002A                     _mode:	
+   216  002A                     	ds	1
+   217                           
+   218                           	psect	cstackCOMMON
+   219  0070                     __pcstackCOMMON:	
+   220  0070                     ?_send_config:	
+   221  0070                     ?_lcd_clr:	
+   222                           ; 0 bytes @ 0x0
+   223                           
+   224  0070                     ?_lcd_goto:	
+   225                           ; 0 bytes @ 0x0
+   226                           
+   227  0070                     ?_send_string:	
+   228                           ; 0 bytes @ 0x0
+   229                           
+   230  0070                     ?_delay:	
+   231                           ; 0 bytes @ 0x0
+   232                           
+   233  0070                     ?_mode1:	
+   234                           ; 0 bytes @ 0x0
+   235                           
+   236  0070                     ?_mode2:	
+   237                           ; 0 bytes @ 0x0
+   238                           
+   239  0070                     ?_send_char:	
+   240                           ; 0 bytes @ 0x0
+   241                           
+   242  0070                     ?_main:	
+   243                           ; 0 bytes @ 0x0
+   244                           
+   245  0070                     ?_uart_send:	
+   246                           ; 0 bytes @ 0x0
+   247                           
+   248  0070                     ??_uart_send:	
+   249                           ; 0 bytes @ 0x0
+   250                           
+   251  0070                     ?___awmod:	
+   252                           ; 0 bytes @ 0x0
+   253                           
+   254  0070                     uart_send@data:	
+   255                           ; 2 bytes @ 0x0
+   256                           
+   257  0070                     ___awmod@divisor:	
+   258                           ; 1 bytes @ 0x0
+   259                           
+   260  0070                     delay@data:	
+   261                           ; 2 bytes @ 0x0
+   262                           
+   263                           
+   264                           ; 4 bytes @ 0x0
+   265  0070                     	ds	1
+   266  0071                     ?_send_cmd:	
+   267  0071                     send_cmd@data:	
+   268                           ; 0 bytes @ 0x1
+   269                           
+   270                           
+   271                           ; 2 bytes @ 0x1
+   272  0071                     	ds	1
+   273  0072                     ___awmod@dividend:	
+   274                           
+   275                           ; 2 bytes @ 0x2
+   276  0072                     	ds	1
+   277  0073                     send_cmd@ramp:	
+   278                           
+   279                           ; 2 bytes @ 0x3
+   280  0073                     	ds	1
+   281  0074                     ??_delay:	
+   282  0074                     ??___awmod:	
+   283                           ; 0 bytes @ 0x4
+   284                           
+   285                           
+   286                           ; 0 bytes @ 0x4
+   287  0074                     	ds	1
+   288  0075                     ??_send_cmd:	
+   289  0075                     ___awmod@counter:	
+   290                           ; 0 bytes @ 0x5
+   291                           
+   292                           
+   293                           ; 1 bytes @ 0x5
+   294  0075                     	ds	1
+   295  0076                     ___awmod@sign:	
+   296                           
+   297                           ; 1 bytes @ 0x6
+   298  0076                     	ds	1
+   299  0077                     ?___awdiv:	
+   300  0077                     ___awdiv@divisor:	
+   301                           ; 2 bytes @ 0x7
+   302                           
+   303                           
+   304                           ; 2 bytes @ 0x7
+   305  0077                     	ds	1
+   306  0078                     ??_send_config:	
+   307  0078                     ??_send_char:	
+   308                           ; 0 bytes @ 0x8
+   309                           
+   310  0078                     send_config@data:	
+   311                           ; 0 bytes @ 0x8
+   312                           
+   313  0078                     send_char@data:	
+   314                           ; 1 bytes @ 0x8
+   315                           
+   316  0078                     send_cmd@num:	
+   317                           ; 1 bytes @ 0x8
+   318                           
+   319                           
+   320                           ; 1 bytes @ 0x8
+   321  0078                     	ds	1
+   322  0079                     ??_lcd_clr:	
+   323  0079                     ??_lcd_goto:	
+   324                           ; 0 bytes @ 0x9
+   325                           
+   326  0079                     ??_send_string:	
+   327                           ; 0 bytes @ 0x9
+   328                           
+   329  0079                     send_cmd@higher_byte:	
+   330                           ; 0 bytes @ 0x9
+   331                           
+   332  0079                     ___awdiv@dividend:	
+   333                           ; 1 bytes @ 0x9
+   334                           
+   335                           
+   336                           ; 2 bytes @ 0x9
+   337  0079                     	ds	1
+   338  007A                     lcd_goto@data:	
+   339  007A                     send_string@s:	
+   340                           ; 1 bytes @ 0xA
+   341                           
+   342  007A                     send_cmd@lower_byte:	
+   343                           ; 1 bytes @ 0xA
+   344                           
+   345                           
+   346                           ; 1 bytes @ 0xA
+   347  007A                     	ds	1
+   348  007B                     ??_mode1:	
+   349  007B                     ??___awdiv:	
+   350                           ; 0 bytes @ 0xB
+   351                           
+   352                           
+   353                           ; 0 bytes @ 0xB
+   354  007B                     	ds	1
+   355  007C                     ??_mode2:	
+   356                           
+   357                           ; 0 bytes @ 0xC
+   358  007C                     	ds	2
+   359                           
+   360                           	psect	cstackBANK0
+   361  0020                     __pcstackBANK0:	
+   362  0020                     ___awdiv@counter:	
+   363                           
+   364                           ; 1 bytes @ 0x0
+   365  0020                     	ds	1
+   366  0021                     ___awdiv@sign:	
+   367                           
+   368                           ; 1 bytes @ 0x1
+   369  0021                     	ds	1
+   370  0022                     ___awdiv@quotient:	
+   371                           
+   372                           ; 2 bytes @ 0x2
+   373  0022                     	ds	2
+   374  0024                     mode2@value:	
+   375                           
+   376                           ; 2 bytes @ 0x4
+   377  0024                     	ds	2
+   378  0026                     mode2@value_temp:	
+   379                           
+   380                           ; 2 bytes @ 0x6
+   381  0026                     	ds	2
+   382  0028                     mode2@channel:	
+   383                           
+   384                           ; 1 bytes @ 0x8
+   385  0028                     	ds	1
+   386  0029                     ??_main:	
+   387                           
+   388                           ; 0 bytes @ 0x9
+   389  0029                     	ds	1
+   390                           
+   391                           	psect	maintext
+   392  025B                     __pmaintext:	
+   393 ;;
+   394 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   395 ;;
+   396 ;; *************** function _main *****************
+   397 ;; Defined at:
+   398 ;;		line 84 in file "../../Source File/PR18.c"
+   399 ;; Parameters:    Size  Location     Type
+   400 ;;		None
+   401 ;; Auto vars:     Size  Location     Type
+   402 ;;		None
+   403 ;; Return value:  Size  Location     Type
+   404 ;;		None               void
+   405 ;; Registers used:
+   406 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   407 ;; Tracked objects:
+   408 ;;		On entry : 17F/0
+   409 ;;		On exit  : 0/0
+   410 ;;		Unchanged: 0/0
+   411 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   412 ;;      Params:         0       0       0       0       0
+   413 ;;      Locals:         0       0       0       0       0
+   414 ;;      Temps:          0       1       0       0       0
+   415 ;;      Totals:         0       1       0       0       0
+   416 ;;Total ram usage:        1 bytes
+   417 ;; Hardware stack levels required when called:    4
+   418 ;; This function calls:
+   419 ;;		_send_config
+   420 ;;		_lcd_clr
+   421 ;;		_lcd_goto
+   422 ;;		_send_string
+   423 ;;		_send_cmd
+   424 ;;		_delay
+   425 ;;		_mode1
+   426 ;;		_mode2
+   427 ;; This function is called by:
+   428 ;;		Startup code after reset
+   429 ;; This function uses a non-reentrant model
+   430 ;;
+   431                           
+   432                           
+   433                           ;psect for function _main
+   434  025B                     _main:	
+   435                           
+   436                           ;PR18.c: 86: TRISB = 0b00000000;
+   437                           
+   438                           ;incstack = 0
+   439                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   440  025B  1683               	bsf	3,5	;RP0=1, select bank1
+   441  025C  1303               	bcf	3,6	;RP1=0, select bank1
+   442  025D  0186               	clrf	6	;volatile
+   443                           
+   444                           ;PR18.c: 87: TRISC = 0b10000000;
+   445  025E  3080               	movlw	128
+   446  025F  0087               	movwf	7	;volatile
+   447                           
+   448                           ;PR18.c: 88: TRISA = 0b00000111;
+   449  0260  3007               	movlw	7
+   450  0261  0085               	movwf	5	;volatile
+   451                           
+   452                           ;PR18.c: 91: SPBRG = 31;
+   453  0262  301F               	movlw	31
+   454  0263  0099               	movwf	25	;volatile
+   455                           
+   456                           ;PR18.c: 92: BRGH = 0;
+   457  0264  1118               	bcf	24,2	;volatile
+   458                           
+   459                           ;PR18.c: 93: TXEN = 1;
+   460  0265  1698               	bsf	24,5	;volatile
+   461                           
+   462                           ;PR18.c: 94: CREN = 1;
+   463  0266  1283               	bcf	3,5	;RP0=0, select bank0
+   464  0267  1303               	bcf	3,6	;RP1=0, select bank0
+   465  0268  1618               	bsf	24,4	;volatile
+   466                           
+   467                           ;PR18.c: 95: SPEN = 1;
+   468  0269  1798               	bsf	24,7	;volatile
+   469                           
+   470                           ;PR18.c: 98: ADCON1 = 0b00000110;
+   471  026A  3006               	movlw	6
+   472  026B  1683               	bsf	3,5	;RP0=1, select bank1
+   473  026C  1303               	bcf	3,6	;RP1=0, select bank1
+   474  026D  009F               	movwf	31	;volatile
+   475                           
+   476                           ;PR18.c: 101: send_config(0b00000001);
+   477  026E  3001               	movlw	1
+   478  026F  120A  118A  213A   	fcall	_send_config
+      +       120A  118A         
+   479                           
+   480                           ;PR18.c: 102: send_config(0b00000010);
+   481  0274  3002               	movlw	2
+   482  0275  120A  118A  213A   	fcall	_send_config
+      +       120A  118A         
+   483                           
+   484                           ;PR18.c: 103: send_config(0b00000110);
+   485  027A  3006               	movlw	6
+   486  027B  120A  118A  213A   	fcall	_send_config
+      +       120A  118A         
+   487                           
+   488                           ;PR18.c: 104: send_config(0b00001100);
+   489  0280  300C               	movlw	12
+   490  0281  120A  118A  213A   	fcall	_send_config
+      +       120A  118A         
+   491                           
+   492                           ;PR18.c: 105: send_config(0b00111000);
+   493  0286  3038               	movlw	56
+   494  0287  120A  118A  213A   	fcall	_send_config
+      +       120A  118A         
+   495                           
+   496                           ;PR18.c: 108: CCP1CON = 0b00001100;
+   497  028C  300C               	movlw	12
+   498  028D  1283               	bcf	3,5	;RP0=0, select bank0
+   499  028E  1303               	bcf	3,6	;RP1=0, select bank0
+   500  028F  0097               	movwf	23	;volatile
+   501                           
+   502                           ;PR18.c: 109: CCP2CON = 0b00001100;
+   503  0290  300C               	movlw	12
+   504  0291  009D               	movwf	29	;volatile
+   505                           
+   506                           ;PR18.c: 110: PR2 = 0xFF;
+   507  0292  30FF               	movlw	255
+   508  0293  1683               	bsf	3,5	;RP0=1, select bank1
+   509  0294  1303               	bcf	3,6	;RP1=0, select bank1
+   510  0295  0092               	movwf	18	;volatile
+   511                           
+   512                           ;PR18.c: 111: T2CON = 0b00000101;
+   513  0296  3005               	movlw	5
+   514  0297  1283               	bcf	3,5	;RP0=0, select bank0
+   515  0298  1303               	bcf	3,6	;RP1=0, select bank0
+   516  0299  0092               	movwf	18	;volatile
+   517                           
+   518                           ;PR18.c: 112: CCPR1L = 50;
+   519  029A  3032               	movlw	50
+   520  029B  0095               	movwf	21	;volatile
+   521                           
+   522                           ;PR18.c: 113: CCPR2L = 50;
+   523  029C  3032               	movlw	50
+   524  029D  009B               	movwf	27	;volatile
+   525                           
+   526                           ;PR18.c: 116: lcd_clr();
+   527  029E  120A  118A  20D0   	fcall	_lcd_clr
+      +       120A  118A         
+   528                           
+   529                           ;PR18.c: 117: lcd_goto(0);
+   530  02A3  3000               	movlw	0
+   531  02A4  120A  118A  20E2   	fcall	_lcd_goto
+      +       120A  118A         
+   532                           
+   533                           ;PR18.c: 118: send_string("Cytron Tech.");
+   534  02A9  301F               	movlw	(STR_1-__stringbase)& (0+255)
+   535  02AA  120A  118A  20F8   	fcall	_send_string
+      +       120A  118A         
+   536                           
+   537                           ;PR18.c: 119: lcd_goto(20);
+   538  02AF  3014               	movlw	20
+   539  02B0  120A  118A  20E2   	fcall	_lcd_goto
+      +       120A  118A         
+   540                           
+   541                           ;PR18.c: 120: send_string("PR18");
+   542  02B5  303D               	movlw	(STR_2-__stringbase)& (0+255)
+   543  02B6  120A  118A  20F8   	fcall	_send_string
+      +       120A  118A         
+   544                           
+   545                           ;PR18.c: 127: send_cmd(0x4A, 732, 0);
+   546  02BB  30DC               	movlw	220
+   547  02BC  00F1               	movwf	?_send_cmd
+   548  02BD  3002               	movlw	2
+   549  02BE  00F2               	movwf	?_send_cmd+1
+   550  02BF  3000               	movlw	0
+   551  02C0  00F3               	movwf	?_send_cmd+2
+   552  02C1  3000               	movlw	0
+   553  02C2  00F4               	movwf	?_send_cmd+3
+   554  02C3  304A               	movlw	74
+   555  02C4  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+   556                           
+   557                           ;PR18.c: 128: send_cmd(0x4B, 732, 0);
+   558  02C9  30DC               	movlw	220
+   559  02CA  00F1               	movwf	?_send_cmd
+   560  02CB  3002               	movlw	2
+   561  02CC  00F2               	movwf	?_send_cmd+1
+   562  02CD  3000               	movlw	0
+   563  02CE  00F3               	movwf	?_send_cmd+2
+   564  02CF  3000               	movlw	0
+   565  02D0  00F4               	movwf	?_send_cmd+3
+   566  02D1  304B               	movlw	75
+   567  02D2  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+   568                           
+   569                           ;PR18.c: 129: send_cmd(0x4C, 732, 0);
+   570  02D7  30DC               	movlw	220
+   571  02D8  00F1               	movwf	?_send_cmd
+   572  02D9  3002               	movlw	2
+   573  02DA  00F2               	movwf	?_send_cmd+1
+   574  02DB  3000               	movlw	0
+   575  02DC  00F3               	movwf	?_send_cmd+2
+   576  02DD  3000               	movlw	0
+   577  02DE  00F4               	movwf	?_send_cmd+3
+   578  02DF  304C               	movlw	76
+   579  02E0  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+   580                           
+   581                           ;PR18.c: 131: send_cmd(0x47, 732, 0);
+   582  02E5  30DC               	movlw	220
+   583  02E6  00F1               	movwf	?_send_cmd
+   584  02E7  3002               	movlw	2
+   585  02E8  00F2               	movwf	?_send_cmd+1
+   586  02E9  3000               	movlw	0
+   587  02EA  00F3               	movwf	?_send_cmd+2
+   588  02EB  3000               	movlw	0
+   589  02EC  00F4               	movwf	?_send_cmd+3
+   590  02ED  3047               	movlw	71
+   591  02EE  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+   592                           
+   593                           ;PR18.c: 132: send_cmd(0x48, 732, 0);
+   594  02F3  30DC               	movlw	220
+   595  02F4  00F1               	movwf	?_send_cmd
+   596  02F5  3002               	movlw	2
+   597  02F6  00F2               	movwf	?_send_cmd+1
+   598  02F7  3000               	movlw	0
+   599  02F8  00F3               	movwf	?_send_cmd+2
+   600  02F9  3000               	movlw	0
+   601  02FA  00F4               	movwf	?_send_cmd+3
+   602  02FB  3048               	movlw	72
+   603  02FC  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+   604                           
+   605                           ;PR18.c: 133: send_cmd(0x49, 732, 0);
+   606  0301  30DC               	movlw	220
+   607  0302  00F1               	movwf	?_send_cmd
+   608  0303  3002               	movlw	2
+   609  0304  00F2               	movwf	?_send_cmd+1
+   610  0305  3000               	movlw	0
+   611  0306  00F3               	movwf	?_send_cmd+2
+   612  0307  3000               	movlw	0
+   613  0308  00F4               	movwf	?_send_cmd+3
+   614  0309  3049               	movlw	73
+   615  030A  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+   616                           
+   617                           ;PR18.c: 135: delay(200000);
+   618  030F  3000               	movlw	0
+   619  0310  00F3               	movwf	?_delay+3
+   620  0311  3003               	movlw	3
+   621  0312  00F2               	movwf	?_delay+2
+   622  0313  300D               	movlw	13
+   623  0314  00F1               	movwf	?_delay+1
+   624  0315  3040               	movlw	64
+   625  0316  00F0               	movwf	?_delay
+   626  0317  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+   627                           
+   628                           ;PR18.c: 137: mode = 1;
+   629  031C  1283               	bcf	3,5	;RP0=0, select bank0
+   630  031D  1303               	bcf	3,6	;RP1=0, select bank0
+   631  031E  01AA               	clrf	_mode
+   632  031F  0AAA               	incf	_mode,f
+   633  0320                     l1575:	
+   634                           ;PR18.c: 139: while(1)
+   635                           
+   636                           
+   637                           ;PR18.c: 140: {
+   638                           ;PR18.c: 141: lcd_clr();
+   639  0320  120A  118A  20D0   	fcall	_lcd_clr
+      +       120A  118A         
+   640                           
+   641                           ;PR18.c: 142: lcd_goto(20);
+   642  0325  3014               	movlw	20
+   643  0326  120A  118A  20E2   	fcall	_lcd_goto
+      +       120A  118A         
+   644                           
+   645                           ;PR18.c: 143: send_string("OK");
+   646  032B  3042               	movlw	(STR_3-__stringbase)& (0+255)
+   647  032C  120A  118A  20F8   	fcall	_send_string
+      +       120A  118A         
+   648  0331                     l1601:	
+   649                           ;PR18.c: 145: while(RA2)
+   650                           
+   651  0331  1283               	bcf	3,5	;RP0=0, select bank0
+   652  0332  1303               	bcf	3,6	;RP1=0, select bank0
+   653  0333  1D05               	btfss	5,2	;volatile
+   654  0334  2B75               	goto	l1603
+   655                           
+   656                           ;PR18.c: 146: {
+   657                           ;PR18.c: 147: if(!RA0)
+   658  0335  1805               	btfsc	5,0	;volatile
+   659  0336  2B3E               	goto	l74
+   660                           
+   661                           ;PR18.c: 148: {
+   662                           ;PR18.c: 150: if(mode > 1)
+   663  0337  3002               	movlw	2
+   664  0338  022A               	subwf	_mode,w
+   665  0339  1C03               	skipc
+   666  033A  2B48               	goto	l1589
+   667                           
+   668                           ;PR18.c: 151: mode--;
+   669  033B  3001               	movlw	1
+   670  033C  02AA               	subwf	_mode,f
+   671                           
+   672                           ;PR18.c: 152: }
+   673  033D  2B48               	goto	l1589
+   674  033E                     l74:	
+   675                           
+   676                           ;PR18.c: 153: else if(!RA1)
+   677  033E  1885               	btfsc	5,1	;volatile
+   678  033F  2B48               	goto	l1589
+   679                           
+   680                           ;PR18.c: 154: {
+   681                           ;PR18.c: 156: if(mode < 2)
+   682  0340  3002               	movlw	2
+   683  0341  022A               	subwf	_mode,w
+   684  0342  1803               	skipnc
+   685  0343  2B48               	goto	l1589
+   686                           
+   687                           ;PR18.c: 157: mode++;
+   688  0344  3001               	movlw	1
+   689  0345  00A9               	movwf	??_main
+   690  0346  0829               	movf	??_main,w
+   691  0347  07AA               	addwf	_mode,f
+   692  0348                     l1589:	
+   693                           
+   694                           ;PR18.c: 158: }
+   695                           ;PR18.c: 161: lcd_goto(0);
+   696  0348  3000               	movlw	0
+   697  0349  120A  118A  20E2   	fcall	_lcd_goto
+      +       120A  118A         
+   698                           
+   699                           ;PR18.c: 162: switch(mode)
+   700  034E  2B5D               	goto	l1597
+   701  034F                     l1591:	
+   702                           ;PR18.c: 163: {
+   703                           ;PR18.c: 164: case 1 : send_string("Biped Walking?");
+   704                           
+   705  034F  3010               	movlw	(STR_4-__stringbase)& (0+255)
+   706  0350  120A  118A  20F8   	fcall	_send_string
+      +       120A  118A         
+   707                           
+   708                           ;PR18.c: 165: break;
+   709  0355  2B67               	goto	l1599
+   710  0356                     l1593:	
+   711                           ;PR18.c: 167: case 2 : send_string("Calibration?  ");
+   712                           
+   713  0356  3001               	movlw	(STR_5-__stringbase)& (0+255)
+   714  0357  120A  118A  20F8   	fcall	_send_string
+      +       120A  118A         
+   715                           
+   716                           ;PR18.c: 169: }
+   717                           
+   718                           ;PR18.c: 168: break;
+   719  035C  2B67               	goto	l1599
+   720  035D                     l1597:	
+   721  035D  1283               	bcf	3,5	;RP0=0, select bank0
+   722  035E  1303               	bcf	3,6	;RP1=0, select bank0
+   723  035F  082A               	movf	_mode,w
+   724                           
+   725                           ; Switch size 1, requested type "space"
+   726                           ; Number of cases is 2, Range of values is 1 to 2
+   727                           ; switch strategies available:
+   728                           ; Name         Instructions Cycles
+   729                           ; simple_byte            7     4 (average)
+   730                           ; direct_byte           17    11 (fixed)
+   731                           ; jumptable            263     9 (fixed)
+   732                           ;	Chosen strategy is simple_byte
+   733  0360  3A01               	xorlw	1	; case 1
+   734  0361  1903               	skipnz
+   735  0362  2B4F               	goto	l1591
+   736  0363  3A03               	xorlw	3	; case 2
+   737  0364  1903               	skipnz
+   738  0365  2B56               	goto	l1593
+   739  0366  2B67               	goto	l1599
+   740  0367                     l1599:	
+   741                           
+   742                           ;PR18.c: 171: delay(30000);
+   743  0367  3000               	movlw	0
+   744  0368  00F3               	movwf	?_delay+3
+   745  0369  3000               	movlw	0
+   746  036A  00F2               	movwf	?_delay+2
+   747  036B  3075               	movlw	117
+   748  036C  00F1               	movwf	?_delay+1
+   749  036D  3030               	movlw	48
+   750  036E  00F0               	movwf	?_delay
+   751  036F  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+   752  0374  2B31               	goto	l1601
+   753  0375                     l1603:	
+   754                           
+   755                           ;PR18.c: 173: }
+   756                           ;PR18.c: 175: delay(10000);
+   757  0375  3000               	movlw	0
+   758  0376  00F3               	movwf	?_delay+3
+   759  0377  3000               	movlw	0
+   760  0378  00F2               	movwf	?_delay+2
+   761  0379  3027               	movlw	39
+   762  037A  00F1               	movwf	?_delay+1
+   763  037B  3010               	movlw	16
+   764  037C  00F0               	movwf	?_delay
+   765  037D  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+   766  0382                     l84:	
+   767                           ;PR18.c: 176: while(!RA2);
+   768                           
+   769  0382  1283               	bcf	3,5	;RP0=0, select bank0
+   770  0383  1303               	bcf	3,6	;RP1=0, select bank0
+   771  0384  1D05               	btfss	5,2	;volatile
+   772  0385  2B82               	goto	l84
+   773                           
+   774                           ;PR18.c: 177: delay(10000);
+   775  0386  3000               	movlw	0
+   776  0387  00F3               	movwf	?_delay+3
+   777  0388  3000               	movlw	0
+   778  0389  00F2               	movwf	?_delay+2
+   779  038A  3027               	movlw	39
+   780  038B  00F1               	movwf	?_delay+1
+   781  038C  3010               	movlw	16
+   782  038D  00F0               	movwf	?_delay
+   783  038E  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+   784                           
+   785                           ;PR18.c: 179: switch(mode)
+   786  0393  2BA0               	goto	l1613
+   787  0394                     l1607:	
+   788                           ;PR18.c: 180: {
+   789                           ;PR18.c: 181: case 1 : mode1();
+   790                           
+   791  0394  120A  118A  2571   	fcall	_mode1
+      +       120A  118A         
+   792                           
+   793                           ;PR18.c: 182: break;
+   794  0399  2B20               	goto	l1575
+   795  039A                     l1609:	
+   796                           ;PR18.c: 184: case 2 : mode2();
+   797                           
+   798  039A  120A  118A  23AB   	fcall	_mode2
+      +       120A  118A         
+   799                           
+   800                           ;PR18.c: 186: }
+   801                           
+   802                           ;PR18.c: 185: break;
+   803  039F  2B20               	goto	l1575
+   804  03A0                     l1613:	
+   805  03A0  1283               	bcf	3,5	;RP0=0, select bank0
+   806  03A1  1303               	bcf	3,6	;RP1=0, select bank0
+   807  03A2  082A               	movf	_mode,w
+   808                           
+   809                           ; Switch size 1, requested type "space"
+   810                           ; Number of cases is 2, Range of values is 1 to 2
+   811                           ; switch strategies available:
+   812                           ; Name         Instructions Cycles
+   813                           ; simple_byte            7     4 (average)
+   814                           ; direct_byte           17    11 (fixed)
+   815                           ; jumptable            263     9 (fixed)
+   816                           ;	Chosen strategy is simple_byte
+   817  03A3  3A01               	xorlw	1	; case 1
+   818  03A4  1903               	skipnz
+   819  03A5  2B94               	goto	l1607
+   820  03A6  3A03               	xorlw	3	; case 2
+   821  03A7  1903               	skipnz
+   822  03A8  2B9A               	goto	l1609
+   823  03A9  2B20               	goto	l1575
+   824  03AA  2B20               	goto	l1575
+   825  03AB                     __end_of_main:	
+   826                           
+   827                           	psect	text1
+   828  03AB                     __ptext1:	
+   829 ;; *************** function _mode2 *****************
+   830 ;; Defined at:
+   831 ;;		line 264 in file "../../Source File/PR18.c"
+   832 ;; Parameters:    Size  Location     Type
+   833 ;;		None
+   834 ;; Auto vars:     Size  Location     Type
+   835 ;;  value_temp      2    6[BANK0 ] int 
+   836 ;;  value           2    4[BANK0 ] int 
+   837 ;;  channel         1    8[BANK0 ] unsigned char 
+   838 ;; Return value:  Size  Location     Type
+   839 ;;		None               void
+   840 ;; Registers used:
+   841 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   842 ;; Tracked objects:
+   843 ;;		On entry : 0/0
+   844 ;;		On exit  : 0/0
+   845 ;;		Unchanged: 0/0
+   846 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   847 ;;      Params:         0       0       0       0       0
+   848 ;;      Locals:         0       5       0       0       0
+   849 ;;      Temps:          2       0       0       0       0
+   850 ;;      Totals:         2       5       0       0       0
+   851 ;;Total ram usage:        7 bytes
+   852 ;; Hardware stack levels used:    1
+   853 ;; Hardware stack levels required when called:    3
+   854 ;; This function calls:
+   855 ;;		_lcd_clr
+   856 ;;		_lcd_goto
+   857 ;;		_send_string
+   858 ;;		_send_cmd
+   859 ;;		_delay
+   860 ;;		_send_char
+   861 ;;		___awdiv
+   862 ;;		___awmod
+   863 ;; This function is called by:
+   864 ;;		_main
+   865 ;; This function uses a non-reentrant model
+   866 ;;
+   867                           
+   868                           
+   869                           ;psect for function _mode2
+   870  03AB                     _mode2:	
+   871                           
+   872                           ;PR18.c: 265: char channel = 1;
+   873                           
+   874                           ;incstack = 0
+   875                           ; Regs used in _mode2: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   876  03AB  1283               	bcf	3,5	;RP0=0, select bank0
+   877  03AC  1303               	bcf	3,6	;RP1=0, select bank0
+   878  03AD  01A8               	clrf	mode2@channel
+   879  03AE  0AA8               	incf	mode2@channel,f
+   880  03AF                     l1441:	
+   881                           ;PR18.c: 266: int value, value_temp;
+   882                           ;PR18.c: 268: while(1)
+   883                           
+   884                           
+   885                           ;PR18.c: 269: {
+   886                           ;PR18.c: 270: value_temp = 732;
+   887  03AF  30DC               	movlw	220
+   888  03B0  1283               	bcf	3,5	;RP0=0, select bank0
+   889  03B1  1303               	bcf	3,6	;RP1=0, select bank0
+   890  03B2  00A6               	movwf	mode2@value_temp
+   891  03B3  3002               	movlw	2
+   892  03B4  00A7               	movwf	mode2@value_temp+1
+   893                           
+   894                           ;PR18.c: 271: value = 0;
+   895  03B5  01A4               	clrf	mode2@value
+   896  03B6  01A5               	clrf	mode2@value+1
+   897                           
+   898                           ;PR18.c: 273: lcd_clr();
+   899  03B7  120A  118A  20D0   	fcall	_lcd_clr
+      +       120A  118A         
+   900                           
+   901                           ;PR18.c: 274: lcd_goto(0);
+   902  03BC  3000               	movlw	0
+   903  03BD  120A  118A  20E2   	fcall	_lcd_goto
+      +       120A  118A         
+   904                           
+   905                           ;PR18.c: 275: send_string("Channel:");
+   906  03C2  302C               	movlw	(STR_7-__stringbase)& (0+255)
+   907  03C3  120A  118A  20F8   	fcall	_send_string
+      +       120A  118A         
+   908                           
+   909                           ;PR18.c: 276: lcd_goto(20);
+   910  03C8  3014               	movlw	20
+   911  03C9  120A  118A  20E2   	fcall	_lcd_goto
+      +       120A  118A         
+   912                           
+   913                           ;PR18.c: 277: send_string("OK");
+   914  03CE  3042               	movlw	(STR_3-__stringbase)& (0+255)
+   915  03CF  120A  118A  20F8   	fcall	_send_string
+      +       120A  118A         
+   916  03D4                     l1471:	
+   917                           ;PR18.c: 279: while(RA2)
+   918                           
+   919  03D4  1283               	bcf	3,5	;RP0=0, select bank0
+   920  03D5  1303               	bcf	3,6	;RP1=0, select bank0
+   921  03D6  1D05               	btfss	5,2	;volatile
+   922  03D7  2C40               	goto	l1473
+   923                           
+   924                           ;PR18.c: 280: {
+   925                           ;PR18.c: 281: if(!RA0)
+   926  03D8  1805               	btfsc	5,0	;volatile
+   927  03D9  2BE1               	goto	l105
+   928                           
+   929                           ;PR18.c: 282: {
+   930                           ;PR18.c: 284: if(channel > 1)
+   931  03DA  3002               	movlw	2
+   932  03DB  0228               	subwf	mode2@channel,w
+   933  03DC  1C03               	skipc
+   934  03DD  2BEB               	goto	l1463
+   935                           
+   936                           ;PR18.c: 285: channel--;
+   937  03DE  3001               	movlw	1
+   938  03DF  02A8               	subwf	mode2@channel,f
+   939                           
+   940                           ;PR18.c: 286: }
+   941  03E0  2BEB               	goto	l1463
+   942  03E1                     l105:	
+   943                           
+   944                           ;PR18.c: 287: else if(!RA1)
+   945  03E1  1885               	btfsc	5,1	;volatile
+   946  03E2  2BEB               	goto	l1463
+   947                           
+   948                           ;PR18.c: 288: {
+   949                           ;PR18.c: 290: if(channel < 32)
+   950  03E3  3020               	movlw	32
+   951  03E4  0228               	subwf	mode2@channel,w
+   952  03E5  1803               	skipnc
+   953  03E6  2BEB               	goto	l1463
+   954                           
+   955                           ;PR18.c: 291: channel++;
+   956  03E7  3001               	movlw	1
+   957  03E8  00FC               	movwf	??_mode2
+   958  03E9  087C               	movf	??_mode2,w
+   959  03EA  07A8               	addwf	mode2@channel,f
+   960  03EB                     l1463:	
+   961                           
+   962                           ;PR18.c: 292: }
+   963                           ;PR18.c: 295: lcd_goto(9);
+   964  03EB  3009               	movlw	9
+   965  03EC  120A  118A  20E2   	fcall	_lcd_goto
+      +       120A  118A         
+   966                           
+   967                           ;PR18.c: 296: if(channel < 10)
+   968  03F1  300A               	movlw	10
+   969  03F2  1283               	bcf	3,5	;RP0=0, select bank0
+   970  03F3  1303               	bcf	3,6	;RP1=0, select bank0
+   971  03F4  0228               	subwf	mode2@channel,w
+   972  03F5  1803               	skipnc
+   973  03F6  2C00               	goto	l1469
+   974                           
+   975                           ;PR18.c: 297: {
+   976                           ;PR18.c: 299: send_char(channel + '0');
+   977  03F7  0828               	movf	mode2@channel,w
+   978  03F8  3E30               	addlw	48
+   979  03F9  120A  118A  215E   	fcall	_send_char
+      +       120A  118A         
+   980                           
+   981                           ;PR18.c: 300: send_char(' ');
+   982  03FE  3020               	movlw	32
+   983  03FF  2C2D               	goto	L1
+   984  0400                     l1469:	
+   985                           ;PR18.c: 301: }
+   986                           
+   987                           
+   988                           ;PR18.c: 302: else
+   989                           ;PR18.c: 303: {
+   990                           ;PR18.c: 305: send_char(channel/10 + '0');
+   991  0400  300A               	movlw	10
+   992  0401  00F7               	movwf	?___awdiv
+   993  0402  3000               	movlw	0
+   994  0403  00F8               	movwf	?___awdiv+1
+   995  0404  1283               	bcf	3,5	;RP0=0, select bank0
+   996  0405  1303               	bcf	3,6	;RP1=0, select bank0
+   997  0406  0828               	movf	mode2@channel,w
+   998  0407  00FC               	movwf	??_mode2
+   999  0408  01FD               	clrf	??_mode2+1
+  1000  0409  087C               	movf	??_mode2,w
+  1001  040A  00F9               	movwf	?___awdiv+2
+  1002  040B  087D               	movf	??_mode2+1,w
+  1003  040C  00FA               	movwf	?___awdiv+3
+  1004  040D  120A  118A  21FE   	fcall	___awdiv
+      +       120A  118A         
+  1005  0412  0877               	movf	?___awdiv,w
+  1006  0413  3E30               	addlw	48
+  1007  0414  120A  118A  215E   	fcall	_send_char
+      +       120A  118A         
+  1008                           
+  1009                           ;PR18.c: 306: send_char(channel%10 + '0');
+  1010  0419  300A               	movlw	10
+  1011  041A  00F0               	movwf	?___awmod
+  1012  041B  3000               	movlw	0
+  1013  041C  00F1               	movwf	?___awmod+1
+  1014  041D  1283               	bcf	3,5	;RP0=0, select bank0
+  1015  041E  1303               	bcf	3,6	;RP1=0, select bank0
+  1016  041F  0828               	movf	mode2@channel,w
+  1017  0420  00FC               	movwf	??_mode2
+  1018  0421  01FD               	clrf	??_mode2+1
+  1019  0422  087C               	movf	??_mode2,w
+  1020  0423  00F2               	movwf	?___awmod+2
+  1021  0424  087D               	movf	??_mode2+1,w
+  1022  0425  00F3               	movwf	?___awmod+3
+  1023  0426  120A  118A  21B1   	fcall	___awmod
+      +       120A  118A         
+  1024  042B  0870               	movf	?___awmod,w
+  1025  042C  3E30               	addlw	48
+  1026  042D                     L1:	
+  1027  042D  120A  118A  215E   	fcall	_send_char
+      +       120A  118A         
+  1028                           
+  1029                           ;PR18.c: 307: }
+  1030                           ;PR18.c: 309: delay(30000);
+  1031  0432  3000               	movlw	0
+  1032  0433  00F3               	movwf	?_delay+3
+  1033  0434  3000               	movlw	0
+  1034  0435  00F2               	movwf	?_delay+2
+  1035  0436  3075               	movlw	117
+  1036  0437  00F1               	movwf	?_delay+1
+  1037  0438  3030               	movlw	48
+  1038  0439  00F0               	movwf	?_delay
+  1039  043A  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  1040  043F  2BD4               	goto	l1471
+  1041  0440                     l1473:	
+  1042                           
+  1043                           ;PR18.c: 311: }
+  1044                           ;PR18.c: 313: delay(10000);
+  1045  0440  3000               	movlw	0
+  1046  0441  00F3               	movwf	?_delay+3
+  1047  0442  3000               	movlw	0
+  1048  0443  00F2               	movwf	?_delay+2
+  1049  0444  3027               	movlw	39
+  1050  0445  00F1               	movwf	?_delay+1
+  1051  0446  3010               	movlw	16
+  1052  0447  00F0               	movwf	?_delay
+  1053  0448  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  1054  044D                     l113:	
+  1055                           ;PR18.c: 314: while(!RA2);
+  1056                           
+  1057  044D  1283               	bcf	3,5	;RP0=0, select bank0
+  1058  044E  1303               	bcf	3,6	;RP1=0, select bank0
+  1059  044F  1D05               	btfss	5,2	;volatile
+  1060  0450  2C4D               	goto	l113
+  1061                           
+  1062                           ;PR18.c: 315: delay(10000);
+  1063  0451  3000               	movlw	0
+  1064  0452  00F3               	movwf	?_delay+3
+  1065  0453  3000               	movlw	0
+  1066  0454  00F2               	movwf	?_delay+2
+  1067  0455  3027               	movlw	39
+  1068  0456  00F1               	movwf	?_delay+1
+  1069  0457  3010               	movlw	16
+  1070  0458  00F0               	movwf	?_delay
+  1071  0459  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  1072                           
+  1073                           ;PR18.c: 317: lcd_clr();
+  1074  045E  120A  118A  20D0   	fcall	_lcd_clr
+      +       120A  118A         
+  1075                           
+  1076                           ;PR18.c: 318: lcd_goto(0);
+  1077  0463  3000               	movlw	0
+  1078  0464  120A  118A  20E2   	fcall	_lcd_goto
+      +       120A  118A         
+  1079                           
+  1080                           ;PR18.c: 319: send_string("Value: ");
+  1081  0469  3035               	movlw	(STR_9-__stringbase)& (0+255)
+  1082  046A  120A  118A  20F8   	fcall	_send_string
+      +       120A  118A         
+  1083  046F                     l1503:	
+  1084                           ;PR18.c: 321: while(RA2)
+  1085                           
+  1086  046F  1283               	bcf	3,5	;RP0=0, select bank0
+  1087  0470  1303               	bcf	3,6	;RP1=0, select bank0
+  1088  0471  1D05               	btfss	5,2	;volatile
+  1089  0472  2D52               	goto	l1505
+  1090                           
+  1091                           ;PR18.c: 322: {
+  1092                           ;PR18.c: 323: if(!RA0)
+  1093  0473  1805               	btfsc	5,0	;volatile
+  1094  0474  2C88               	goto	l118
+  1095                           
+  1096                           ;PR18.c: 324: {
+  1097                           ;PR18.c: 326: if(value_temp > 0)
+  1098  0475  0827               	movf	mode2@value_temp+1,w
+  1099  0476  3A80               	xorlw	128
+  1100  0477  00FF               	movwf	127
+  1101  0478  3080               	movlw	128
+  1102  0479  027F               	subwf	127,w
+  1103  047A  1D03               	skipz
+  1104  047B  2C7E               	goto	u835
+  1105  047C  3001               	movlw	1
+  1106  047D  0226               	subwf	mode2@value_temp,w
+  1107  047E                     u835:	
+  1108  047E  1C03               	skipc
+  1109  047F  2C9D               	goto	l120
+  1110                           
+  1111                           ;PR18.c: 327: value_temp--;
+  1112  0480  30FF               	movlw	255
+  1113  0481  1283               	bcf	3,5	;RP0=0, select bank0
+  1114  0482  1303               	bcf	3,6	;RP1=0, select bank0
+  1115  0483  07A6               	addwf	mode2@value_temp,f
+  1116  0484  1803               	skipnc
+  1117  0485  0AA7               	incf	mode2@value_temp+1,f
+  1118  0486  30FF               	movlw	255
+  1119  0487  2C9C               	goto	L2
+  1120  0488                     l118:	
+  1121                           ;PR18.c: 328: }
+  1122                           
+  1123                           
+  1124                           ;PR18.c: 329: else if(!RA1)
+  1125  0488  1885               	btfsc	5,1	;volatile
+  1126  0489  2C9D               	goto	l120
+  1127                           
+  1128                           ;PR18.c: 330: {
+  1129                           ;PR18.c: 332: if(value_temp < 1454)
+  1130  048A  0827               	movf	mode2@value_temp+1,w
+  1131  048B  3A80               	xorlw	128
+  1132  048C  00FF               	movwf	127
+  1133  048D  3085               	movlw	133
+  1134  048E  027F               	subwf	127,w
+  1135  048F  1D03               	skipz
+  1136  0490  2C93               	goto	u855
+  1137  0491  30AE               	movlw	174
+  1138  0492  0226               	subwf	mode2@value_temp,w
+  1139  0493                     u855:	
+  1140  0493  1803               	skipnc
+  1141  0494  2C9D               	goto	l120
+  1142                           
+  1143                           ;PR18.c: 333: value_temp++;
+  1144  0495  3001               	movlw	1
+  1145  0496  1283               	bcf	3,5	;RP0=0, select bank0
+  1146  0497  1303               	bcf	3,6	;RP1=0, select bank0
+  1147  0498  07A6               	addwf	mode2@value_temp,f
+  1148  0499  1803               	skipnc
+  1149  049A  0AA7               	incf	mode2@value_temp+1,f
+  1150  049B  3000               	movlw	0
+  1151  049C                     L2:	
+  1152  049C  07A7               	addwf	mode2@value_temp+1,f
+  1153  049D                     l120:	
+  1154                           
+  1155                           ;PR18.c: 334: }
+  1156                           ;PR18.c: 336: if(value_temp != value)
+  1157  049D  1283               	bcf	3,5	;RP0=0, select bank0
+  1158  049E  1303               	bcf	3,6	;RP1=0, select bank0
+  1159  049F  0825               	movf	mode2@value+1,w
+  1160  04A0  0627               	xorwf	mode2@value_temp+1,w
+  1161  04A1  1D03               	skipz
+  1162  04A2  2CA5               	goto	u865
+  1163  04A3  0824               	movf	mode2@value,w
+  1164  04A4  0626               	xorwf	mode2@value_temp,w
+  1165  04A5                     u865:	
+  1166  04A5  1903               	skipnz
+  1167  04A6  2D44               	goto	l1501
+  1168                           
+  1169                           ;PR18.c: 337: {
+  1170                           ;PR18.c: 338: send_cmd(0x40|channel,value_temp,0);
+  1171  04A7  0827               	movf	mode2@value_temp+1,w
+  1172  04A8  01F2               	clrf	?_send_cmd+1
+  1173  04A9  07F2               	addwf	?_send_cmd+1,f
+  1174  04AA  0826               	movf	mode2@value_temp,w
+  1175  04AB  01F1               	clrf	?_send_cmd
+  1176  04AC  07F1               	addwf	?_send_cmd,f
+  1177  04AD  3000               	movlw	0
+  1178  04AE  00F3               	movwf	?_send_cmd+2
+  1179  04AF  3000               	movlw	0
+  1180  04B0  00F4               	movwf	?_send_cmd+3
+  1181  04B1  0828               	movf	mode2@channel,w
+  1182  04B2  3840               	iorlw	64
+  1183  04B3  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1184                           
+  1185                           ;PR18.c: 339: value = value_temp;
+  1186  04B8  1283               	bcf	3,5	;RP0=0, select bank0
+  1187  04B9  1303               	bcf	3,6	;RP1=0, select bank0
+  1188  04BA  0827               	movf	mode2@value_temp+1,w
+  1189  04BB  01A5               	clrf	mode2@value+1
+  1190  04BC  07A5               	addwf	mode2@value+1,f
+  1191  04BD  0826               	movf	mode2@value_temp,w
+  1192  04BE  01A4               	clrf	mode2@value
+  1193  04BF  07A4               	addwf	mode2@value,f
+  1194                           
+  1195                           ;PR18.c: 342: lcd_goto(7);
+  1196  04C0  3007               	movlw	7
+  1197  04C1  120A  118A  20E2   	fcall	_lcd_goto
+      +       120A  118A         
+  1198                           
+  1199                           ;PR18.c: 343: send_char('0' + (value / 1000));
+  1200  04C6  30E8               	movlw	232
+  1201  04C7  00F7               	movwf	?___awdiv
+  1202  04C8  3003               	movlw	3
+  1203  04C9  00F8               	movwf	?___awdiv+1
+  1204  04CA  1283               	bcf	3,5	;RP0=0, select bank0
+  1205  04CB  1303               	bcf	3,6	;RP1=0, select bank0
+  1206  04CC  0825               	movf	mode2@value+1,w
+  1207  04CD  01FA               	clrf	?___awdiv+3
+  1208  04CE  07FA               	addwf	?___awdiv+3,f
+  1209  04CF  0824               	movf	mode2@value,w
+  1210  04D0  01F9               	clrf	?___awdiv+2
+  1211  04D1  07F9               	addwf	?___awdiv+2,f
+  1212  04D2  120A  118A  21FE   	fcall	___awdiv
+      +       120A  118A         
+  1213  04D7  0877               	movf	?___awdiv,w
+  1214  04D8  3E30               	addlw	48
+  1215  04D9  120A  118A  215E   	fcall	_send_char
+      +       120A  118A         
+  1216                           
+  1217                           ;PR18.c: 344: send_char('0' + (value % 1000) / 100);
+  1218  04DE  3064               	movlw	100
+  1219  04DF  00F7               	movwf	?___awdiv
+  1220  04E0  3000               	movlw	0
+  1221  04E1  00F8               	movwf	?___awdiv+1
+  1222  04E2  1283               	bcf	3,5	;RP0=0, select bank0
+  1223  04E3  1303               	bcf	3,6	;RP1=0, select bank0
+  1224  04E4  0825               	movf	mode2@value+1,w
+  1225  04E5  01F3               	clrf	?___awmod+3
+  1226  04E6  07F3               	addwf	?___awmod+3,f
+  1227  04E7  0824               	movf	mode2@value,w
+  1228  04E8  01F2               	clrf	?___awmod+2
+  1229  04E9  07F2               	addwf	?___awmod+2,f
+  1230  04EA  30E8               	movlw	232
+  1231  04EB  00F0               	movwf	?___awmod
+  1232  04EC  3003               	movlw	3
+  1233  04ED  00F1               	movwf	?___awmod+1
+  1234  04EE  120A  118A  21B1   	fcall	___awmod
+      +       120A  118A         
+  1235  04F3  0871               	movf	?___awmod+1,w
+  1236  04F4  01FA               	clrf	?___awdiv+3
+  1237  04F5  07FA               	addwf	?___awdiv+3,f
+  1238  04F6  0870               	movf	?___awmod,w
+  1239  04F7  01F9               	clrf	?___awdiv+2
+  1240  04F8  07F9               	addwf	?___awdiv+2,f
+  1241  04F9  120A  118A  21FE   	fcall	___awdiv
+      +       120A  118A         
+  1242  04FE  0877               	movf	?___awdiv,w
+  1243  04FF  3E30               	addlw	48
+  1244  0500  120A  118A  215E   	fcall	_send_char
+      +       120A  118A         
+  1245                           
+  1246                           ;PR18.c: 345: send_char('0' + (value % 100) / 10);
+  1247  0505  300A               	movlw	10
+  1248  0506  00F7               	movwf	?___awdiv
+  1249  0507  3000               	movlw	0
+  1250  0508  00F8               	movwf	?___awdiv+1
+  1251  0509  1283               	bcf	3,5	;RP0=0, select bank0
+  1252  050A  1303               	bcf	3,6	;RP1=0, select bank0
+  1253  050B  0825               	movf	mode2@value+1,w
+  1254  050C  01F3               	clrf	?___awmod+3
+  1255  050D  07F3               	addwf	?___awmod+3,f
+  1256  050E  0824               	movf	mode2@value,w
+  1257  050F  01F2               	clrf	?___awmod+2
+  1258  0510  07F2               	addwf	?___awmod+2,f
+  1259  0511  3064               	movlw	100
+  1260  0512  00F0               	movwf	?___awmod
+  1261  0513  3000               	movlw	0
+  1262  0514  00F1               	movwf	?___awmod+1
+  1263  0515  120A  118A  21B1   	fcall	___awmod
+      +       120A  118A         
+  1264  051A  0871               	movf	?___awmod+1,w
+  1265  051B  01FA               	clrf	?___awdiv+3
+  1266  051C  07FA               	addwf	?___awdiv+3,f
+  1267  051D  0870               	movf	?___awmod,w
+  1268  051E  01F9               	clrf	?___awdiv+2
+  1269  051F  07F9               	addwf	?___awdiv+2,f
+  1270  0520  120A  118A  21FE   	fcall	___awdiv
+      +       120A  118A         
+  1271  0525  0877               	movf	?___awdiv,w
+  1272  0526  3E30               	addlw	48
+  1273  0527  120A  118A  215E   	fcall	_send_char
+      +       120A  118A         
+  1274                           
+  1275                           ;PR18.c: 346: send_char('0' + (value % 10));
+  1276  052C  300A               	movlw	10
+  1277  052D  00F0               	movwf	?___awmod
+  1278  052E  3000               	movlw	0
+  1279  052F  00F1               	movwf	?___awmod+1
+  1280  0530  1283               	bcf	3,5	;RP0=0, select bank0
+  1281  0531  1303               	bcf	3,6	;RP1=0, select bank0
+  1282  0532  0825               	movf	mode2@value+1,w
+  1283  0533  01F3               	clrf	?___awmod+3
+  1284  0534  07F3               	addwf	?___awmod+3,f
+  1285  0535  0824               	movf	mode2@value,w
+  1286  0536  01F2               	clrf	?___awmod+2
+  1287  0537  07F2               	addwf	?___awmod+2,f
+  1288  0538  120A  118A  21B1   	fcall	___awmod
+      +       120A  118A         
+  1289  053D  0870               	movf	?___awmod,w
+  1290  053E  3E30               	addlw	48
+  1291  053F  120A  118A  215E   	fcall	_send_char
+      +       120A  118A         
+  1292  0544                     l1501:	
+  1293                           
+  1294                           ;PR18.c: 347: }
+  1295                           ;PR18.c: 349: delay(15000);
+  1296  0544  3000               	movlw	0
+  1297  0545  00F3               	movwf	?_delay+3
+  1298  0546  3000               	movlw	0
+  1299  0547  00F2               	movwf	?_delay+2
+  1300  0548  303A               	movlw	58
+  1301  0549  00F1               	movwf	?_delay+1
+  1302  054A  3098               	movlw	152
+  1303  054B  00F0               	movwf	?_delay
+  1304  054C  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  1305  0551  2C6F               	goto	l1503
+  1306  0552                     l1505:	
+  1307                           
+  1308                           ;PR18.c: 351: }
+  1309                           ;PR18.c: 353: delay(10000);
+  1310  0552  3000               	movlw	0
+  1311  0553  00F3               	movwf	?_delay+3
+  1312  0554  3000               	movlw	0
+  1313  0555  00F2               	movwf	?_delay+2
+  1314  0556  3027               	movlw	39
+  1315  0557  00F1               	movwf	?_delay+1
+  1316  0558  3010               	movlw	16
+  1317  0559  00F0               	movwf	?_delay
+  1318  055A  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  1319  055F                     l125:	
+  1320                           ;PR18.c: 354: while(!RA2);
+  1321                           
+  1322  055F  1283               	bcf	3,5	;RP0=0, select bank0
+  1323  0560  1303               	bcf	3,6	;RP1=0, select bank0
+  1324  0561  1D05               	btfss	5,2	;volatile
+  1325  0562  2D5F               	goto	l125
+  1326                           
+  1327                           ;PR18.c: 355: delay(10000);
+  1328  0563  3000               	movlw	0
+  1329  0564  00F3               	movwf	?_delay+3
+  1330  0565  3000               	movlw	0
+  1331  0566  00F2               	movwf	?_delay+2
+  1332  0567  3027               	movlw	39
+  1333  0568  00F1               	movwf	?_delay+1
+  1334  0569  3010               	movlw	16
+  1335  056A  00F0               	movwf	?_delay
+  1336  056B  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  1337  0570  2BAF               	goto	l1441
+  1338  0571                     __end_of_mode2:	
+  1339                           
+  1340                           	psect	text2
+  1341  01B1                     __ptext2:	
+  1342 ;; *************** function ___awmod *****************
+  1343 ;; Defined at:
+  1344 ;;		line 5 in file "C:\Program Files\Microchip\xc8\v1.21\sources\pic\awmod.c"
+  1345 ;; Parameters:    Size  Location     Type
+  1346 ;;  divisor         2    0[COMMON] int 
+  1347 ;;  dividend        2    2[COMMON] int 
+  1348 ;; Auto vars:     Size  Location     Type
+  1349 ;;  sign            1    6[COMMON] unsigned char 
+  1350 ;;  counter         1    5[COMMON] unsigned char 
+  1351 ;; Return value:  Size  Location     Type
+  1352 ;;                  2    0[COMMON] int 
+  1353 ;; Registers used:
+  1354 ;;		wreg, status,2, status,0
+  1355 ;; Tracked objects:
+  1356 ;;		On entry : 0/0
+  1357 ;;		On exit  : 0/0
+  1358 ;;		Unchanged: 0/0
+  1359 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1360 ;;      Params:         4       0       0       0       0
+  1361 ;;      Locals:         2       0       0       0       0
+  1362 ;;      Temps:          1       0       0       0       0
+  1363 ;;      Totals:         7       0       0       0       0
+  1364 ;;Total ram usage:        7 bytes
+  1365 ;; Hardware stack levels used:    1
+  1366 ;; This function calls:
+  1367 ;;		Nothing
+  1368 ;; This function is called by:
+  1369 ;;		_mode2
+  1370 ;; This function uses a non-reentrant model
+  1371 ;;
+  1372                           
+  1373                           
+  1374                           ;psect for function ___awmod
+  1375  01B1                     ___awmod:	
+  1376                           
+  1377                           ;incstack = 0
+  1378                           ; Regs used in ___awmod: [wreg+status,2+status,0]
+  1379  01B1  01F6               	clrf	___awmod@sign
+  1380  01B2  1FF3               	btfss	___awmod@dividend+1,7
+  1381  01B3  29BB               	goto	l1209
+  1382  01B4  09F2               	comf	___awmod@dividend,f
+  1383  01B5  09F3               	comf	___awmod@dividend+1,f
+  1384  01B6  0AF2               	incf	___awmod@dividend,f
+  1385  01B7  1903               	skipnz
+  1386  01B8  0AF3               	incf	___awmod@dividend+1,f
+  1387  01B9  01F6               	clrf	___awmod@sign
+  1388  01BA  0AF6               	incf	___awmod@sign,f
+  1389  01BB                     l1209:	
+  1390  01BB  1FF1               	btfss	___awmod@divisor+1,7
+  1391  01BC  29C2               	goto	l1213
+  1392  01BD  09F0               	comf	___awmod@divisor,f
+  1393  01BE  09F1               	comf	___awmod@divisor+1,f
+  1394  01BF  0AF0               	incf	___awmod@divisor,f
+  1395  01C0  1903               	skipnz
+  1396  01C1  0AF1               	incf	___awmod@divisor+1,f
+  1397  01C2                     l1213:	
+  1398  01C2  0871               	movf	___awmod@divisor+1,w
+  1399  01C3  0470               	iorwf	___awmod@divisor,w
+  1400  01C4  1903               	skipnz
+  1401  01C5  29EF               	goto	l1231
+  1402  01C6  01F5               	clrf	___awmod@counter
+  1403  01C7  0AF5               	incf	___awmod@counter,f
+  1404  01C8                     l1221:	
+  1405  01C8  1BF1               	btfsc	___awmod@divisor+1,7
+  1406  01C9  29D6               	goto	l1223
+  1407  01CA  3001               	movlw	1
+  1408  01CB                     u555:	
+  1409  01CB  1003               	clrc
+  1410  01CC  0DF0               	rlf	___awmod@divisor,f
+  1411  01CD  0DF1               	rlf	___awmod@divisor+1,f
+  1412  01CE  3EFF               	addlw	-1
+  1413  01CF  1D03               	skipz
+  1414  01D0  29CB               	goto	u555
+  1415  01D1  3001               	movlw	1
+  1416  01D2  00F4               	movwf	??___awmod
+  1417  01D3  0874               	movf	??___awmod,w
+  1418  01D4  07F5               	addwf	___awmod@counter,f
+  1419  01D5  29C8               	goto	l1221
+  1420  01D6                     l1223:	
+  1421  01D6  0871               	movf	___awmod@divisor+1,w
+  1422  01D7  0273               	subwf	___awmod@dividend+1,w
+  1423  01D8  1D03               	skipz
+  1424  01D9  29DC               	goto	u575
+  1425  01DA  0870               	movf	___awmod@divisor,w
+  1426  01DB  0272               	subwf	___awmod@dividend,w
+  1427  01DC                     u575:	
+  1428  01DC  1C03               	skipc
+  1429  01DD  29E4               	goto	l1227
+  1430  01DE  0870               	movf	___awmod@divisor,w
+  1431  01DF  02F2               	subwf	___awmod@dividend,f
+  1432  01E0  0871               	movf	___awmod@divisor+1,w
+  1433  01E1  1C03               	skipc
+  1434  01E2  03F3               	decf	___awmod@dividend+1,f
+  1435  01E3  02F3               	subwf	___awmod@dividend+1,f
+  1436  01E4                     l1227:	
+  1437  01E4  3001               	movlw	1
+  1438  01E5                     u585:	
+  1439  01E5  1003               	clrc
+  1440  01E6  0CF1               	rrf	___awmod@divisor+1,f
+  1441  01E7  0CF0               	rrf	___awmod@divisor,f
+  1442  01E8  3EFF               	addlw	-1
+  1443  01E9  1D03               	skipz
+  1444  01EA  29E5               	goto	u585
+  1445  01EB  3001               	movlw	1
+  1446  01EC  02F5               	subwf	___awmod@counter,f
+  1447  01ED  1D03               	btfss	3,2
+  1448  01EE  29D6               	goto	l1223
+  1449  01EF                     l1231:	
+  1450  01EF  0876               	movf	___awmod@sign,w
+  1451  01F0  1903               	btfsc	3,2
+  1452  01F1  29F7               	goto	l1235
+  1453  01F2  09F2               	comf	___awmod@dividend,f
+  1454  01F3  09F3               	comf	___awmod@dividend+1,f
+  1455  01F4  0AF2               	incf	___awmod@dividend,f
+  1456  01F5  1903               	skipnz
+  1457  01F6  0AF3               	incf	___awmod@dividend+1,f
+  1458  01F7                     l1235:	
+  1459  01F7  0873               	movf	___awmod@dividend+1,w
+  1460  01F8  01F1               	clrf	?___awmod+1
+  1461  01F9  07F1               	addwf	?___awmod+1,f
+  1462  01FA  0872               	movf	___awmod@dividend,w
+  1463  01FB  01F0               	clrf	?___awmod
+  1464  01FC  07F0               	addwf	?___awmod,f
+  1465  01FD  0008               	return
+  1466  01FE                     __end_of___awmod:	
+  1467                           
+  1468                           	psect	text3
+  1469  01FE                     __ptext3:	
+  1470 ;; *************** function ___awdiv *****************
+  1471 ;; Defined at:
+  1472 ;;		line 5 in file "C:\Program Files\Microchip\xc8\v1.21\sources\pic\awdiv.c"
+  1473 ;; Parameters:    Size  Location     Type
+  1474 ;;  divisor         2    7[COMMON] int 
+  1475 ;;  dividend        2    9[COMMON] int 
+  1476 ;; Auto vars:     Size  Location     Type
+  1477 ;;  quotient        2    2[BANK0 ] int 
+  1478 ;;  sign            1    1[BANK0 ] unsigned char 
+  1479 ;;  counter         1    0[BANK0 ] unsigned char 
+  1480 ;; Return value:  Size  Location     Type
+  1481 ;;                  2    7[COMMON] int 
+  1482 ;; Registers used:
+  1483 ;;		wreg, status,2, status,0
+  1484 ;; Tracked objects:
+  1485 ;;		On entry : 0/0
+  1486 ;;		On exit  : 0/0
+  1487 ;;		Unchanged: 0/0
+  1488 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1489 ;;      Params:         4       0       0       0       0
+  1490 ;;      Locals:         0       4       0       0       0
+  1491 ;;      Temps:          1       0       0       0       0
+  1492 ;;      Totals:         5       4       0       0       0
+  1493 ;;Total ram usage:        9 bytes
+  1494 ;; Hardware stack levels used:    1
+  1495 ;; This function calls:
+  1496 ;;		Nothing
+  1497 ;; This function is called by:
+  1498 ;;		_mode2
+  1499 ;; This function uses a non-reentrant model
+  1500 ;;
+  1501                           
+  1502                           
+  1503                           ;psect for function ___awdiv
+  1504  01FE                     ___awdiv:	
+  1505                           
+  1506                           ;incstack = 0
+  1507                           ; Regs used in ___awdiv: [wreg+status,2+status,0]
+  1508  01FE  1283               	bcf	3,5	;RP0=0, select bank0
+  1509  01FF  1303               	bcf	3,6	;RP1=0, select bank0
+  1510  0200  01A1               	clrf	___awdiv@sign
+  1511  0201  1FF8               	btfss	___awdiv@divisor+1,7
+  1512  0202  2A0A               	goto	l1285
+  1513  0203  09F7               	comf	___awdiv@divisor,f
+  1514  0204  09F8               	comf	___awdiv@divisor+1,f
+  1515  0205  0AF7               	incf	___awdiv@divisor,f
+  1516  0206  1903               	skipnz
+  1517  0207  0AF8               	incf	___awdiv@divisor+1,f
+  1518  0208  01A1               	clrf	___awdiv@sign
+  1519  0209  0AA1               	incf	___awdiv@sign,f
+  1520  020A                     l1285:	
+  1521  020A  1FFA               	btfss	___awdiv@dividend+1,7
+  1522  020B  2A15               	goto	l1291
+  1523  020C  09F9               	comf	___awdiv@dividend,f
+  1524  020D  09FA               	comf	___awdiv@dividend+1,f
+  1525  020E  0AF9               	incf	___awdiv@dividend,f
+  1526  020F  1903               	skipnz
+  1527  0210  0AFA               	incf	___awdiv@dividend+1,f
+  1528  0211  3001               	movlw	1
+  1529  0212  00FB               	movwf	??___awdiv
+  1530  0213  087B               	movf	??___awdiv,w
+  1531  0214  06A1               	xorwf	___awdiv@sign,f
+  1532  0215                     l1291:	
+  1533  0215  01A2               	clrf	___awdiv@quotient
+  1534  0216  01A3               	clrf	___awdiv@quotient+1
+  1535  0217  0878               	movf	___awdiv@divisor+1,w
+  1536  0218  0477               	iorwf	___awdiv@divisor,w
+  1537  0219  1903               	skipnz
+  1538  021A  2A4C               	goto	l1313
+  1539  021B  01A0               	clrf	___awdiv@counter
+  1540  021C  0AA0               	incf	___awdiv@counter,f
+  1541  021D                     l1301:	
+  1542  021D  1BF8               	btfsc	___awdiv@divisor+1,7
+  1543  021E  2A2B               	goto	l1303
+  1544  021F  3001               	movlw	1
+  1545  0220                     u655:	
+  1546  0220  1003               	clrc
+  1547  0221  0DF7               	rlf	___awdiv@divisor,f
+  1548  0222  0DF8               	rlf	___awdiv@divisor+1,f
+  1549  0223  3EFF               	addlw	-1
+  1550  0224  1D03               	skipz
+  1551  0225  2A20               	goto	u655
+  1552  0226  3001               	movlw	1
+  1553  0227  00FB               	movwf	??___awdiv
+  1554  0228  087B               	movf	??___awdiv,w
+  1555  0229  07A0               	addwf	___awdiv@counter,f
+  1556  022A  2A1D               	goto	l1301
+  1557  022B                     l1303:	
+  1558  022B  3001               	movlw	1
+  1559  022C                     u675:	
+  1560  022C  1003               	clrc
+  1561  022D  0DA2               	rlf	___awdiv@quotient,f
+  1562  022E  0DA3               	rlf	___awdiv@quotient+1,f
+  1563  022F  3EFF               	addlw	-1
+  1564  0230  1D03               	skipz
+  1565  0231  2A2C               	goto	u675
+  1566  0232  0878               	movf	___awdiv@divisor+1,w
+  1567  0233  027A               	subwf	___awdiv@dividend+1,w
+  1568  0234  1D03               	skipz
+  1569  0235  2A38               	goto	u685
+  1570  0236  0877               	movf	___awdiv@divisor,w
+  1571  0237  0279               	subwf	___awdiv@dividend,w
+  1572  0238                     u685:	
+  1573  0238  1C03               	skipc
+  1574  0239  2A41               	goto	l1309
+  1575  023A  0877               	movf	___awdiv@divisor,w
+  1576  023B  02F9               	subwf	___awdiv@dividend,f
+  1577  023C  0878               	movf	___awdiv@divisor+1,w
+  1578  023D  1C03               	skipc
+  1579  023E  03FA               	decf	___awdiv@dividend+1,f
+  1580  023F  02FA               	subwf	___awdiv@dividend+1,f
+  1581  0240  1422               	bsf	___awdiv@quotient,0
+  1582  0241                     l1309:	
+  1583  0241  3001               	movlw	1
+  1584  0242                     u695:	
+  1585  0242  1003               	clrc
+  1586  0243  0CF8               	rrf	___awdiv@divisor+1,f
+  1587  0244  0CF7               	rrf	___awdiv@divisor,f
+  1588  0245  3EFF               	addlw	-1
+  1589  0246  1D03               	skipz
+  1590  0247  2A42               	goto	u695
+  1591  0248  3001               	movlw	1
+  1592  0249  02A0               	subwf	___awdiv@counter,f
+  1593  024A  1D03               	btfss	3,2
+  1594  024B  2A2B               	goto	l1303
+  1595  024C                     l1313:	
+  1596  024C  0821               	movf	___awdiv@sign,w
+  1597  024D  1903               	btfsc	3,2
+  1598  024E  2A54               	goto	l1317
+  1599  024F  09A2               	comf	___awdiv@quotient,f
+  1600  0250  09A3               	comf	___awdiv@quotient+1,f
+  1601  0251  0AA2               	incf	___awdiv@quotient,f
+  1602  0252  1903               	skipnz
+  1603  0253  0AA3               	incf	___awdiv@quotient+1,f
+  1604  0254                     l1317:	
+  1605  0254  0823               	movf	___awdiv@quotient+1,w
+  1606  0255  01F8               	clrf	?___awdiv+1
+  1607  0256  07F8               	addwf	?___awdiv+1,f
+  1608  0257  0822               	movf	___awdiv@quotient,w
+  1609  0258  01F7               	clrf	?___awdiv
+  1610  0259  07F7               	addwf	?___awdiv,f
+  1611  025A  0008               	return
+  1612  025B                     __end_of___awdiv:	
+  1613                           
+  1614                           	psect	text4
+  1615  00D0                     __ptext4:	
+  1616 ;; *************** function _lcd_clr *****************
+  1617 ;; Defined at:
+  1618 ;;		line 400 in file "../../Source File/PR18.c"
+  1619 ;; Parameters:    Size  Location     Type
+  1620 ;;		None
+  1621 ;; Auto vars:     Size  Location     Type
+  1622 ;;		None
+  1623 ;; Return value:  Size  Location     Type
+  1624 ;;		None               void
+  1625 ;; Registers used:
+  1626 ;;		wreg, status,2, status,0, pclath, cstack
+  1627 ;; Tracked objects:
+  1628 ;;		On entry : 0/0
+  1629 ;;		On exit  : 0/0
+  1630 ;;		Unchanged: 0/0
+  1631 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1632 ;;      Params:         0       0       0       0       0
+  1633 ;;      Locals:         0       0       0       0       0
+  1634 ;;      Temps:          0       0       0       0       0
+  1635 ;;      Totals:         0       0       0       0       0
+  1636 ;;Total ram usage:        0 bytes
+  1637 ;; Hardware stack levels used:    1
+  1638 ;; Hardware stack levels required when called:    2
+  1639 ;; This function calls:
+  1640 ;;		_send_config
+  1641 ;;		_delay
+  1642 ;; This function is called by:
+  1643 ;;		_main
+  1644 ;;		_mode2
+  1645 ;; This function uses a non-reentrant model
+  1646 ;;
+  1647                           
+  1648                           
+  1649                           ;psect for function _lcd_clr
+  1650  00D0                     _lcd_clr:	
+  1651                           
+  1652                           ;PR18.c: 401: send_config(0x01);
+  1653                           
+  1654                           ;incstack = 0
+  1655                           ; Regs used in _lcd_clr: [wreg+status,2+status,0+pclath+cstack]
+  1656  00D0  3001               	movlw	1
+  1657  00D1  120A  118A  213A   	fcall	_send_config
+      +       120A  118A         
+  1658                           
+  1659                           ;PR18.c: 402: delay(600);
+  1660  00D6  3000               	movlw	0
+  1661  00D7  00F3               	movwf	?_delay+3
+  1662  00D8  3000               	movlw	0
+  1663  00D9  00F2               	movwf	?_delay+2
+  1664  00DA  3002               	movlw	2
+  1665  00DB  00F1               	movwf	?_delay+1
+  1666  00DC  3058               	movlw	88
+  1667  00DD  00F0               	movwf	?_delay
+  1668  00DE  120A  118A  2117   	fcall	_delay
+  1669  00E1  0008               	return
+  1670  00E2                     __end_of_lcd_clr:	
+  1671                           
+  1672                           	psect	text5
+  1673  0571                     __ptext5:	
+  1674 ;; *************** function _mode1 *****************
+  1675 ;; Defined at:
+  1676 ;;		line 193 in file "../../Source File/PR18.c"
+  1677 ;; Parameters:    Size  Location     Type
+  1678 ;;		None
+  1679 ;; Auto vars:     Size  Location     Type
+  1680 ;;		None
+  1681 ;; Return value:  Size  Location     Type
+  1682 ;;		None               void
+  1683 ;; Registers used:
+  1684 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1685 ;; Tracked objects:
+  1686 ;;		On entry : 0/0
+  1687 ;;		On exit  : 0/0
+  1688 ;;		Unchanged: 0/0
+  1689 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1690 ;;      Params:         0       0       0       0       0
+  1691 ;;      Locals:         0       0       0       0       0
+  1692 ;;      Temps:          0       0       0       0       0
+  1693 ;;      Totals:         0       0       0       0       0
+  1694 ;;Total ram usage:        0 bytes
+  1695 ;; Hardware stack levels used:    1
+  1696 ;; Hardware stack levels required when called:    3
+  1697 ;; This function calls:
+  1698 ;;		_lcd_goto
+  1699 ;;		_send_string
+  1700 ;;		_send_cmd
+  1701 ;;		_delay
+  1702 ;;		_send_char
+  1703 ;; This function is called by:
+  1704 ;;		_main
+  1705 ;; This function uses a non-reentrant model
+  1706 ;;
+  1707                           
+  1708                           
+  1709                           ;psect for function _mode1
+  1710  0571                     _mode1:	
+  1711                           
+  1712                           ;PR18.c: 194: lcd_goto(13);
+  1713                           
+  1714                           ;incstack = 0
+  1715                           ; Regs used in _mode1: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1716  0571  300D               	movlw	13
+  1717  0572  120A  118A  20E2   	fcall	_lcd_goto
+      +       120A  118A         
+  1718                           
+  1719                           ;PR18.c: 195: send_char(' ');
+  1720  0577  3020               	movlw	32
+  1721  0578  120A  118A  215E   	fcall	_send_char
+      +       120A  118A         
+  1722                           
+  1723                           ;PR18.c: 196: lcd_goto(20);
+  1724  057D  3014               	movlw	20
+  1725  057E  120A  118A  20E2   	fcall	_lcd_goto
+      +       120A  118A         
+  1726                           
+  1727                           ;PR18.c: 197: send_string("  ");
+  1728  0583  300D               	movlw	((STR_5+12)-__stringbase)& (0+255)
+  1729  0584  120A  118A  20F8   	fcall	_send_string
+      +       120A  118A         
+  1730                           
+  1731                           ;PR18.c: 198: delay(100000);
+  1732  0589  3000               	movlw	0
+  1733  058A  00F3               	movwf	?_delay+3
+  1734  058B  3001               	movlw	1
+  1735  058C  00F2               	movwf	?_delay+2
+  1736  058D  3086               	movlw	134
+  1737  058E  00F1               	movwf	?_delay+1
+  1738  058F  30A0               	movlw	160
+  1739  0590  00F0               	movwf	?_delay
+  1740  0591  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  1741                           
+  1742                           ;PR18.c: 202: send_cmd(0x4A, 732+300, 30);
+  1743  0596  3008               	movlw	8
+  1744  0597  00F1               	movwf	?_send_cmd
+  1745  0598  3004               	movlw	4
+  1746  0599  00F2               	movwf	?_send_cmd+1
+  1747  059A  301E               	movlw	30
+  1748  059B  00F3               	movwf	?_send_cmd+2
+  1749  059C  3000               	movlw	0
+  1750  059D  00F4               	movwf	?_send_cmd+3
+  1751  059E  304A               	movlw	74
+  1752  059F  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1753                           
+  1754                           ;PR18.c: 203: send_cmd(0x47, 732-300, 30);
+  1755  05A4  30B0               	movlw	176
+  1756  05A5  00F1               	movwf	?_send_cmd
+  1757  05A6  3001               	movlw	1
+  1758  05A7  00F2               	movwf	?_send_cmd+1
+  1759  05A8  301E               	movlw	30
+  1760  05A9  00F3               	movwf	?_send_cmd+2
+  1761  05AA  3000               	movlw	0
+  1762  05AB  00F4               	movwf	?_send_cmd+3
+  1763  05AC  3047               	movlw	71
+  1764  05AD  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1765                           
+  1766                           ;PR18.c: 204: send_cmd(0x4B, 732+300, 30);
+  1767  05B2  3008               	movlw	8
+  1768  05B3  00F1               	movwf	?_send_cmd
+  1769  05B4  3004               	movlw	4
+  1770  05B5  00F2               	movwf	?_send_cmd+1
+  1771  05B6  301E               	movlw	30
+  1772  05B7  00F3               	movwf	?_send_cmd+2
+  1773  05B8  3000               	movlw	0
+  1774  05B9  00F4               	movwf	?_send_cmd+3
+  1775  05BA  304B               	movlw	75
+  1776  05BB  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1777                           
+  1778                           ;PR18.c: 205: send_cmd(0x48, 732-300, 30);
+  1779  05C0  30B0               	movlw	176
+  1780  05C1  00F1               	movwf	?_send_cmd
+  1781  05C2  3001               	movlw	1
+  1782  05C3  00F2               	movwf	?_send_cmd+1
+  1783  05C4  301E               	movlw	30
+  1784  05C5  00F3               	movwf	?_send_cmd+2
+  1785  05C6  3000               	movlw	0
+  1786  05C7  00F4               	movwf	?_send_cmd+3
+  1787  05C8  3048               	movlw	72
+  1788  05C9  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1789                           
+  1790                           ;PR18.c: 206: delay(200000);
+  1791  05CE  3000               	movlw	0
+  1792  05CF  00F3               	movwf	?_delay+3
+  1793  05D0  3003               	movlw	3
+  1794  05D1  00F2               	movwf	?_delay+2
+  1795  05D2  300D               	movlw	13
+  1796  05D3  00F1               	movwf	?_delay+1
+  1797  05D4  3040               	movlw	64
+  1798  05D5  00F0               	movwf	?_delay
+  1799  05D6  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  1800                           
+  1801                           ;PR18.c: 207: send_cmd(0x4C, 732-200, 20);
+  1802  05DB  3014               	movlw	20
+  1803  05DC  00F1               	movwf	?_send_cmd
+  1804  05DD  3002               	movlw	2
+  1805  05DE  00F2               	movwf	?_send_cmd+1
+  1806  05DF  3014               	movlw	20
+  1807  05E0  00F3               	movwf	?_send_cmd+2
+  1808  05E1  3000               	movlw	0
+  1809  05E2  00F4               	movwf	?_send_cmd+3
+  1810  05E3  304C               	movlw	76
+  1811  05E4  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1812                           
+  1813                           ;PR18.c: 208: send_cmd(0x47, 732, 30);
+  1814  05E9  30DC               	movlw	220
+  1815  05EA  00F1               	movwf	?_send_cmd
+  1816  05EB  3002               	movlw	2
+  1817  05EC  00F2               	movwf	?_send_cmd+1
+  1818  05ED  301E               	movlw	30
+  1819  05EE  00F3               	movwf	?_send_cmd+2
+  1820  05EF  3000               	movlw	0
+  1821  05F0  00F4               	movwf	?_send_cmd+3
+  1822  05F1  3047               	movlw	71
+  1823  05F2  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1824                           
+  1825                           ;PR18.c: 209: send_cmd(0x48, 732, 30);
+  1826  05F7  30DC               	movlw	220
+  1827  05F8  00F1               	movwf	?_send_cmd
+  1828  05F9  3002               	movlw	2
+  1829  05FA  00F2               	movwf	?_send_cmd+1
+  1830  05FB  301E               	movlw	30
+  1831  05FC  00F3               	movwf	?_send_cmd+2
+  1832  05FD  3000               	movlw	0
+  1833  05FE  00F4               	movwf	?_send_cmd+3
+  1834  05FF  3048               	movlw	72
+  1835  0600  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1836                           
+  1837                           ;PR18.c: 210: send_cmd(0x49, 732-200, 20);
+  1838  0605  3014               	movlw	20
+  1839  0606  00F1               	movwf	?_send_cmd
+  1840  0607  3002               	movlw	2
+  1841  0608  00F2               	movwf	?_send_cmd+1
+  1842  0609  3014               	movlw	20
+  1843  060A                     L3:	
+  1844  060A  00F3               	movwf	?_send_cmd+2
+  1845  060B  3000               	movlw	0
+  1846  060C  00F4               	movwf	?_send_cmd+3
+  1847  060D  3049               	movlw	73
+  1848  060E  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1849                           
+  1850                           ;PR18.c: 211: delay(300000);
+  1851  0613  3000               	movlw	0
+  1852  0614  00F3               	movwf	?_delay+3
+  1853  0615  3004               	movlw	4
+  1854  0616  00F2               	movwf	?_delay+2
+  1855  0617  3093               	movlw	147
+  1856  0618  00F1               	movwf	?_delay+1
+  1857  0619  30E0               	movlw	224
+  1858  061A  00F0               	movwf	?_delay
+  1859  061B  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  1860                           
+  1861                           ;PR18.c: 214: {
+  1862                           ;PR18.c: 216: send_cmd(0x4C, 732-60, 20);
+  1863                           
+  1864                           ;PR18.c: 213: while(1)
+  1865  0620  30A0               	movlw	160
+  1866  0621  00F1               	movwf	?_send_cmd
+  1867  0622  3002               	movlw	2
+  1868  0623  00F2               	movwf	?_send_cmd+1
+  1869  0624  3014               	movlw	20
+  1870  0625  00F3               	movwf	?_send_cmd+2
+  1871  0626  3000               	movlw	0
+  1872  0627  00F4               	movwf	?_send_cmd+3
+  1873  0628  304C               	movlw	76
+  1874  0629  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1875                           
+  1876                           ;PR18.c: 217: send_cmd(0x49, 732-60, 20);
+  1877  062E  30A0               	movlw	160
+  1878  062F  00F1               	movwf	?_send_cmd
+  1879  0630  3002               	movlw	2
+  1880  0631  00F2               	movwf	?_send_cmd+1
+  1881  0632  3014               	movlw	20
+  1882  0633  00F3               	movwf	?_send_cmd+2
+  1883  0634  3000               	movlw	0
+  1884  0635  00F4               	movwf	?_send_cmd+3
+  1885  0636  3049               	movlw	73
+  1886  0637  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1887                           
+  1888                           ;PR18.c: 218: delay(200000);
+  1889  063C  3000               	movlw	0
+  1890  063D  00F3               	movwf	?_delay+3
+  1891  063E  3003               	movlw	3
+  1892  063F  00F2               	movwf	?_delay+2
+  1893  0640  300D               	movlw	13
+  1894  0641  00F1               	movwf	?_delay+1
+  1895  0642  3040               	movlw	64
+  1896  0643  00F0               	movwf	?_delay
+  1897  0644  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  1898                           
+  1899                           ;PR18.c: 220: send_cmd(0x4A, 732-375, 40);
+  1900  0649  3065               	movlw	101
+  1901  064A  00F1               	movwf	?_send_cmd
+  1902  064B  3001               	movlw	1
+  1903  064C  00F2               	movwf	?_send_cmd+1
+  1904  064D  3028               	movlw	40
+  1905  064E  00F3               	movwf	?_send_cmd+2
+  1906  064F  3000               	movlw	0
+  1907  0650  00F4               	movwf	?_send_cmd+3
+  1908  0651  304A               	movlw	74
+  1909  0652  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1910                           
+  1911                           ;PR18.c: 221: send_cmd(0x4B, 732, 20);
+  1912  0657  30DC               	movlw	220
+  1913  0658  00F1               	movwf	?_send_cmd
+  1914  0659  3002               	movlw	2
+  1915  065A  00F2               	movwf	?_send_cmd+1
+  1916  065B  3014               	movlw	20
+  1917  065C  00F3               	movwf	?_send_cmd+2
+  1918  065D  3000               	movlw	0
+  1919  065E  00F4               	movwf	?_send_cmd+3
+  1920  065F  304B               	movlw	75
+  1921  0660  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1922                           
+  1923                           ;PR18.c: 222: send_cmd(0x47, 732+675, 40);
+  1924  0665  307F               	movlw	127
+  1925  0666  00F1               	movwf	?_send_cmd
+  1926  0667  3005               	movlw	5
+  1927  0668  00F2               	movwf	?_send_cmd+1
+  1928  0669  3028               	movlw	40
+  1929  066A  00F3               	movwf	?_send_cmd+2
+  1930  066B  3000               	movlw	0
+  1931  066C  00F4               	movwf	?_send_cmd+3
+  1932  066D  3047               	movlw	71
+  1933  066E  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1934                           
+  1935                           ;PR18.c: 223: send_cmd(0x48, 732+300, 15);
+  1936  0673  3008               	movlw	8
+  1937  0674  00F1               	movwf	?_send_cmd
+  1938  0675  3004               	movlw	4
+  1939  0676  00F2               	movwf	?_send_cmd+1
+  1940  0677  300F               	movlw	15
+  1941  0678  00F3               	movwf	?_send_cmd+2
+  1942  0679  3000               	movlw	0
+  1943  067A  00F4               	movwf	?_send_cmd+3
+  1944  067B  3048               	movlw	72
+  1945  067C  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1946                           
+  1947                           ;PR18.c: 224: send_cmd(0x4C, 732+60, 10);
+  1948  0681  3018               	movlw	24
+  1949  0682  00F1               	movwf	?_send_cmd
+  1950  0683  3003               	movlw	3
+  1951  0684  00F2               	movwf	?_send_cmd+1
+  1952  0685  300A               	movlw	10
+  1953  0686  00F3               	movwf	?_send_cmd+2
+  1954  0687  3000               	movlw	0
+  1955  0688  00F4               	movwf	?_send_cmd+3
+  1956  0689  304C               	movlw	76
+  1957  068A  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1958                           
+  1959                           ;PR18.c: 225: send_cmd(0x49, 732+60, 10);
+  1960  068F  3018               	movlw	24
+  1961  0690  00F1               	movwf	?_send_cmd
+  1962  0691  3003               	movlw	3
+  1963  0692  00F2               	movwf	?_send_cmd+1
+  1964  0693  300A               	movlw	10
+  1965  0694  00F3               	movwf	?_send_cmd+2
+  1966  0695  3000               	movlw	0
+  1967  0696  00F4               	movwf	?_send_cmd+3
+  1968  0697  3049               	movlw	73
+  1969  0698  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1970                           
+  1971                           ;PR18.c: 226: delay(450000);
+  1972  069D  3000               	movlw	0
+  1973  069E  00F3               	movwf	?_delay+3
+  1974  069F  3006               	movlw	6
+  1975  06A0  00F2               	movwf	?_delay+2
+  1976  06A1  30DD               	movlw	221
+  1977  06A2  00F1               	movwf	?_delay+1
+  1978  06A3  30D0               	movlw	208
+  1979  06A4  00F0               	movwf	?_delay
+  1980  06A5  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  1981                           
+  1982                           ;PR18.c: 228: send_cmd(0x4C, 732, 20);
+  1983  06AA  30DC               	movlw	220
+  1984  06AB  00F1               	movwf	?_send_cmd
+  1985  06AC  3002               	movlw	2
+  1986  06AD  00F2               	movwf	?_send_cmd+1
+  1987  06AE  3014               	movlw	20
+  1988  06AF  00F3               	movwf	?_send_cmd+2
+  1989  06B0  3000               	movlw	0
+  1990  06B1  00F4               	movwf	?_send_cmd+3
+  1991  06B2  304C               	movlw	76
+  1992  06B3  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  1993                           
+  1994                           ;PR18.c: 229: send_cmd(0x49, 732+200, 20);
+  1995  06B8  30A4               	movlw	164
+  1996  06B9  00F1               	movwf	?_send_cmd
+  1997  06BA  3003               	movlw	3
+  1998  06BB  00F2               	movwf	?_send_cmd+1
+  1999  06BC  3014               	movlw	20
+  2000  06BD  00F3               	movwf	?_send_cmd+2
+  2001  06BE  3000               	movlw	0
+  2002  06BF  00F4               	movwf	?_send_cmd+3
+  2003  06C0  3049               	movlw	73
+  2004  06C1  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2005                           
+  2006                           ;PR18.c: 230: delay(200000);
+  2007  06C6  3000               	movlw	0
+  2008  06C7  00F3               	movwf	?_delay+3
+  2009  06C8  3003               	movlw	3
+  2010  06C9  00F2               	movwf	?_delay+2
+  2011  06CA  300D               	movlw	13
+  2012  06CB  00F1               	movwf	?_delay+1
+  2013  06CC  3040               	movlw	64
+  2014  06CD  00F0               	movwf	?_delay
+  2015  06CE  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  2016                           
+  2017                           ;PR18.c: 232: send_cmd(0x47, 732-300, 60);
+  2018  06D3  30B0               	movlw	176
+  2019  06D4  00F1               	movwf	?_send_cmd
+  2020  06D5  3001               	movlw	1
+  2021  06D6  00F2               	movwf	?_send_cmd+1
+  2022  06D7  303C               	movlw	60
+  2023  06D8  00F3               	movwf	?_send_cmd+2
+  2024  06D9  3000               	movlw	0
+  2025  06DA  00F4               	movwf	?_send_cmd+3
+  2026  06DB  3047               	movlw	71
+  2027  06DC  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2028                           
+  2029                           ;PR18.c: 233: send_cmd(0x48, 732-300, 30);
+  2030  06E1  30B0               	movlw	176
+  2031  06E2  00F1               	movwf	?_send_cmd
+  2032  06E3  3001               	movlw	1
+  2033  06E4  00F2               	movwf	?_send_cmd+1
+  2034  06E5  301E               	movlw	30
+  2035  06E6  00F3               	movwf	?_send_cmd+2
+  2036  06E7  3000               	movlw	0
+  2037  06E8  00F4               	movwf	?_send_cmd+3
+  2038  06E9  3048               	movlw	72
+  2039  06EA  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2040                           
+  2041                           ;PR18.c: 234: send_cmd(0x4A, 732, 30);
+  2042  06EF  30DC               	movlw	220
+  2043  06F0  00F1               	movwf	?_send_cmd
+  2044  06F1  3002               	movlw	2
+  2045  06F2  00F2               	movwf	?_send_cmd+1
+  2046  06F3  301E               	movlw	30
+  2047  06F4  00F3               	movwf	?_send_cmd+2
+  2048  06F5  3000               	movlw	0
+  2049  06F6  00F4               	movwf	?_send_cmd+3
+  2050  06F7  304A               	movlw	74
+  2051  06F8  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2052                           
+  2053                           ;PR18.c: 235: send_cmd(0x4C, 732+200, 30);
+  2054  06FD  30A4               	movlw	164
+  2055  06FE  00F1               	movwf	?_send_cmd
+  2056  06FF  3003               	movlw	3
+  2057  0700  00F2               	movwf	?_send_cmd+1
+  2058  0701  301E               	movlw	30
+  2059  0702  00F3               	movwf	?_send_cmd+2
+  2060  0703  3000               	movlw	0
+  2061  0704  00F4               	movwf	?_send_cmd+3
+  2062  0705  304C               	movlw	76
+  2063  0706  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2064                           
+  2065                           ;PR18.c: 236: delay(300000);
+  2066  070B  3000               	movlw	0
+  2067  070C  00F3               	movwf	?_delay+3
+  2068  070D  3004               	movlw	4
+  2069  070E  00F2               	movwf	?_delay+2
+  2070  070F  3093               	movlw	147
+  2071  0710  00F1               	movwf	?_delay+1
+  2072  0711  30E0               	movlw	224
+  2073  0712  00F0               	movwf	?_delay
+  2074  0713  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  2075                           
+  2076                           ;PR18.c: 239: send_cmd(0x49, 732+60, 20);
+  2077  0718  3018               	movlw	24
+  2078  0719  00F1               	movwf	?_send_cmd
+  2079  071A  3003               	movlw	3
+  2080  071B  00F2               	movwf	?_send_cmd+1
+  2081  071C  3014               	movlw	20
+  2082  071D  00F3               	movwf	?_send_cmd+2
+  2083  071E  3000               	movlw	0
+  2084  071F  00F4               	movwf	?_send_cmd+3
+  2085  0720  3049               	movlw	73
+  2086  0721  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2087                           
+  2088                           ;PR18.c: 240: send_cmd(0x4C, 732+60, 20);
+  2089  0726  3018               	movlw	24
+  2090  0727  00F1               	movwf	?_send_cmd
+  2091  0728  3003               	movlw	3
+  2092  0729  00F2               	movwf	?_send_cmd+1
+  2093  072A  3014               	movlw	20
+  2094  072B  00F3               	movwf	?_send_cmd+2
+  2095  072C  3000               	movlw	0
+  2096  072D  00F4               	movwf	?_send_cmd+3
+  2097  072E  304C               	movlw	76
+  2098  072F  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2099                           
+  2100                           ;PR18.c: 241: delay(200000);
+  2101  0734  3000               	movlw	0
+  2102  0735  00F3               	movwf	?_delay+3
+  2103  0736  3003               	movlw	3
+  2104  0737  00F2               	movwf	?_delay+2
+  2105  0738  300D               	movlw	13
+  2106  0739  00F1               	movwf	?_delay+1
+  2107  073A  3040               	movlw	64
+  2108  073B  00F0               	movwf	?_delay
+  2109  073C  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  2110                           
+  2111                           ;PR18.c: 243: send_cmd(0x47, 732+375, 40);
+  2112  0741  3053               	movlw	83
+  2113  0742  00F1               	movwf	?_send_cmd
+  2114  0743  3004               	movlw	4
+  2115  0744  00F2               	movwf	?_send_cmd+1
+  2116  0745  3028               	movlw	40
+  2117  0746  00F3               	movwf	?_send_cmd+2
+  2118  0747  3000               	movlw	0
+  2119  0748  00F4               	movwf	?_send_cmd+3
+  2120  0749  3047               	movlw	71
+  2121  074A  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2122                           
+  2123                           ;PR18.c: 244: send_cmd(0x48, 732, 20);
+  2124  074F  30DC               	movlw	220
+  2125  0750  00F1               	movwf	?_send_cmd
+  2126  0751  3002               	movlw	2
+  2127  0752  00F2               	movwf	?_send_cmd+1
+  2128  0753  3014               	movlw	20
+  2129  0754  00F3               	movwf	?_send_cmd+2
+  2130  0755  3000               	movlw	0
+  2131  0756  00F4               	movwf	?_send_cmd+3
+  2132  0757  3048               	movlw	72
+  2133  0758  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2134                           
+  2135                           ;PR18.c: 245: send_cmd(0x4A, 732-675, 40);
+  2136  075D  3039               	movlw	57
+  2137  075E  00F1               	movwf	?_send_cmd
+  2138  075F  3000               	movlw	0
+  2139  0760  00F2               	movwf	?_send_cmd+1
+  2140  0761  3028               	movlw	40
+  2141  0762  00F3               	movwf	?_send_cmd+2
+  2142  0763  3000               	movlw	0
+  2143  0764  00F4               	movwf	?_send_cmd+3
+  2144  0765  304A               	movlw	74
+  2145  0766  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2146                           
+  2147                           ;PR18.c: 246: send_cmd(0x4B, 732-300, 15);
+  2148  076B  30B0               	movlw	176
+  2149  076C  00F1               	movwf	?_send_cmd
+  2150  076D  3001               	movlw	1
+  2151  076E  00F2               	movwf	?_send_cmd+1
+  2152  076F  300F               	movlw	15
+  2153  0770  00F3               	movwf	?_send_cmd+2
+  2154  0771  3000               	movlw	0
+  2155  0772  00F4               	movwf	?_send_cmd+3
+  2156  0773  304B               	movlw	75
+  2157  0774  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2158                           
+  2159                           ;PR18.c: 247: send_cmd(0x49, 732-60, 10);
+  2160  0779  30A0               	movlw	160
+  2161  077A  00F1               	movwf	?_send_cmd
+  2162  077B  3002               	movlw	2
+  2163  077C  00F2               	movwf	?_send_cmd+1
+  2164  077D  300A               	movlw	10
+  2165  077E  00F3               	movwf	?_send_cmd+2
+  2166  077F  3000               	movlw	0
+  2167  0780  00F4               	movwf	?_send_cmd+3
+  2168  0781  3049               	movlw	73
+  2169  0782  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2170                           
+  2171                           ;PR18.c: 248: send_cmd(0x4C, 732-60, 10);
+  2172  0787  30A0               	movlw	160
+  2173  0788  00F1               	movwf	?_send_cmd
+  2174  0789  3002               	movlw	2
+  2175  078A  00F2               	movwf	?_send_cmd+1
+  2176  078B  300A               	movlw	10
+  2177  078C  00F3               	movwf	?_send_cmd+2
+  2178  078D  3000               	movlw	0
+  2179  078E  00F4               	movwf	?_send_cmd+3
+  2180  078F  304C               	movlw	76
+  2181  0790  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2182                           
+  2183                           ;PR18.c: 249: delay(450000);
+  2184  0795  3000               	movlw	0
+  2185  0796  00F3               	movwf	?_delay+3
+  2186  0797  3006               	movlw	6
+  2187  0798  00F2               	movwf	?_delay+2
+  2188  0799  30DD               	movlw	221
+  2189  079A  00F1               	movwf	?_delay+1
+  2190  079B  30D0               	movlw	208
+  2191  079C  00F0               	movwf	?_delay
+  2192  079D  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  2193                           
+  2194                           ;PR18.c: 251: send_cmd(0x49, 732, 20);
+  2195  07A2  30DC               	movlw	220
+  2196  07A3  00F1               	movwf	?_send_cmd
+  2197  07A4  3002               	movlw	2
+  2198  07A5  00F2               	movwf	?_send_cmd+1
+  2199  07A6  3014               	movlw	20
+  2200  07A7  00F3               	movwf	?_send_cmd+2
+  2201  07A8  3000               	movlw	0
+  2202  07A9  00F4               	movwf	?_send_cmd+3
+  2203  07AA  3049               	movlw	73
+  2204  07AB  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2205                           
+  2206                           ;PR18.c: 252: send_cmd(0x4C, 732-200, 20);
+  2207  07B0  3014               	movlw	20
+  2208  07B1  00F1               	movwf	?_send_cmd
+  2209  07B2  3002               	movlw	2
+  2210  07B3  00F2               	movwf	?_send_cmd+1
+  2211  07B4  3014               	movlw	20
+  2212  07B5  00F3               	movwf	?_send_cmd+2
+  2213  07B6  3000               	movlw	0
+  2214  07B7  00F4               	movwf	?_send_cmd+3
+  2215  07B8  304C               	movlw	76
+  2216  07B9  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2217                           
+  2218                           ;PR18.c: 253: delay(200000);
+  2219  07BE  3000               	movlw	0
+  2220  07BF  00F3               	movwf	?_delay+3
+  2221  07C0  3003               	movlw	3
+  2222  07C1  00F2               	movwf	?_delay+2
+  2223  07C2  300D               	movlw	13
+  2224  07C3  00F1               	movwf	?_delay+1
+  2225  07C4  3040               	movlw	64
+  2226  07C5  00F0               	movwf	?_delay
+  2227  07C6  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  2228                           
+  2229                           ;PR18.c: 255: send_cmd(0x4A, 732+300, 60);
+  2230  07CB  3008               	movlw	8
+  2231  07CC  00F1               	movwf	?_send_cmd
+  2232  07CD  3004               	movlw	4
+  2233  07CE  00F2               	movwf	?_send_cmd+1
+  2234  07CF  303C               	movlw	60
+  2235  07D0  00F3               	movwf	?_send_cmd+2
+  2236  07D1  3000               	movlw	0
+  2237  07D2  00F4               	movwf	?_send_cmd+3
+  2238  07D3  304A               	movlw	74
+  2239  07D4  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2240                           
+  2241                           ;PR18.c: 256: send_cmd(0x4B, 732+300, 30);
+  2242  07D9  3008               	movlw	8
+  2243  07DA  00F1               	movwf	?_send_cmd
+  2244  07DB  3004               	movlw	4
+  2245  07DC  00F2               	movwf	?_send_cmd+1
+  2246  07DD  301E               	movlw	30
+  2247  07DE  00F3               	movwf	?_send_cmd+2
+  2248  07DF  3000               	movlw	0
+  2249  07E0  00F4               	movwf	?_send_cmd+3
+  2250  07E1  304B               	movlw	75
+  2251  07E2  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2252                           
+  2253                           ;PR18.c: 257: send_cmd(0x47, 732, 30);
+  2254  07E7  30DC               	movlw	220
+  2255  07E8  00F1               	movwf	?_send_cmd
+  2256  07E9  3002               	movlw	2
+  2257  07EA  00F2               	movwf	?_send_cmd+1
+  2258  07EB  301E               	movlw	30
+  2259  07EC  00F3               	movwf	?_send_cmd+2
+  2260  07ED  3000               	movlw	0
+  2261  07EE  00F4               	movwf	?_send_cmd+3
+  2262  07EF  3047               	movlw	71
+  2263  07F0  120A  118A  2182   	fcall	_send_cmd
+      +       120A  118A         
+  2264                           
+  2265                           ;PR18.c: 258: send_cmd(0x49, 732-200, 30);
+  2266  07F5  3014               	movlw	20
+  2267  07F6  00F1               	movwf	?_send_cmd
+  2268  07F7  3002               	movlw	2
+  2269  07F8  00F2               	movwf	?_send_cmd+1
+  2270  07F9  301E               	movlw	30
+  2271  07FA  2E0A               	goto	L3
+  2272  07FB                     __end_of_mode1:	
+  2273                           ;PR18.c: 259: delay(300000);
+  2274                           
+  2275                           
+  2276                           	psect	text6
+  2277  0182                     __ptext6:	
+  2278 ;; *************** function _send_cmd *****************
+  2279 ;; Defined at:
+  2280 ;;		line 417 in file "../../Source File/PR18.c"
+  2281 ;; Parameters:    Size  Location     Type
+  2282 ;;  num             1    wreg     unsigned char 
+  2283 ;;  data            2    1[COMMON] unsigned int 
+  2284 ;;  ramp            2    3[COMMON] unsigned int 
+  2285 ;; Auto vars:     Size  Location     Type
+  2286 ;;  num             1    8[COMMON] unsigned char 
+  2287 ;;  lower_byte      1   10[COMMON] unsigned char 
+  2288 ;;  higher_byte     1    9[COMMON] unsigned char 
+  2289 ;; Return value:  Size  Location     Type
+  2290 ;;		None               void
+  2291 ;; Registers used:
+  2292 ;;		wreg, status,2, status,0, pclath, cstack
+  2293 ;; Tracked objects:
+  2294 ;;		On entry : 0/0
+  2295 ;;		On exit  : 0/0
+  2296 ;;		Unchanged: 0/0
+  2297 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2298 ;;      Params:         4       0       0       0       0
+  2299 ;;      Locals:         3       0       0       0       0
+  2300 ;;      Temps:          3       0       0       0       0
+  2301 ;;      Totals:        10       0       0       0       0
+  2302 ;;Total ram usage:       10 bytes
+  2303 ;; Hardware stack levels used:    1
+  2304 ;; Hardware stack levels required when called:    1
+  2305 ;; This function calls:
+  2306 ;;		_uart_send
+  2307 ;; This function is called by:
+  2308 ;;		_main
+  2309 ;;		_mode1
+  2310 ;;		_mode2
+  2311 ;; This function uses a non-reentrant model
+  2312 ;;
+  2313                           
+  2314                           
+  2315                           ;psect for function _send_cmd
+  2316  0182                     _send_cmd:	
+  2317                           
+  2318                           ;incstack = 0
+  2319                           ; Regs used in _send_cmd: [wreg+status,2+status,0+pclath+cstack]
+  2320                           ;send_cmd@num stored from wreg
+  2321  0182  00F8               	movwf	send_cmd@num
+  2322                           
+  2323                           ;PR18.c: 418: unsigned char higher_byte=0, lower_byte=0;
+  2324  0183  01F9               	clrf	send_cmd@higher_byte
+  2325  0184  01FA               	clrf	send_cmd@lower_byte
+  2326                           
+  2327                           ;PR18.c: 422: higher_byte=(data>>6)&0x003f;
+  2328  0185  0872               	movf	send_cmd@data+1,w
+  2329  0186  00F6               	movwf	??_send_cmd+1
+  2330  0187  0871               	movf	send_cmd@data,w
+  2331  0188  00F5               	movwf	??_send_cmd
+  2332  0189  3006               	movlw	6
+  2333  018A                     u615:	
+  2334  018A  1003               	clrc
+  2335  018B  0CF6               	rrf	??_send_cmd+1,f
+  2336  018C  0CF5               	rrf	??_send_cmd,f
+  2337  018D  3EFF               	addlw	-1
+  2338  018E  1D03               	skipz
+  2339  018F  298A               	goto	u615
+  2340  0190  0875               	movf	??_send_cmd,w
+  2341  0191  393F               	andlw	63
+  2342  0192  00F7               	movwf	??_send_cmd+2
+  2343  0193  0877               	movf	??_send_cmd+2,w
+  2344  0194  00F9               	movwf	send_cmd@higher_byte
+  2345                           
+  2346                           ;PR18.c: 423: lower_byte=data&0x003f;
+  2347  0195  0871               	movf	send_cmd@data,w
+  2348  0196  393F               	andlw	63
+  2349  0197  00F5               	movwf	??_send_cmd
+  2350  0198  0875               	movf	??_send_cmd,w
+  2351  0199  00FA               	movwf	send_cmd@lower_byte
+  2352                           
+  2353                           ;PR18.c: 425: uart_send(num);
+  2354  019A  0878               	movf	send_cmd@num,w
+  2355  019B  120A  118A  20C8   	fcall	_uart_send
+      +       120A  118A         
+  2356                           
+  2357                           ;PR18.c: 426: uart_send(higher_byte);
+  2358  01A0  0879               	movf	send_cmd@higher_byte,w
+  2359  01A1  120A  118A  20C8   	fcall	_uart_send
+      +       120A  118A         
+  2360                           
+  2361                           ;PR18.c: 427: uart_send(lower_byte);
+  2362  01A6  087A               	movf	send_cmd@lower_byte,w
+  2363  01A7  120A  118A  20C8   	fcall	_uart_send
+      +       120A  118A         
+  2364                           
+  2365                           ;PR18.c: 428: uart_send(ramp);
+  2366  01AC  0873               	movf	send_cmd@ramp,w
+  2367  01AD  120A  118A  20C8   	fcall	_uart_send
+  2368  01B0  0008               	return
+  2369  01B1                     __end_of_send_cmd:	
+  2370                           
+  2371                           	psect	text7
+  2372  00C8                     __ptext7:	
+  2373 ;; *************** function _uart_send *****************
+  2374 ;; Defined at:
+  2375 ;;		line 411 in file "../../Source File/PR18.c"
+  2376 ;; Parameters:    Size  Location     Type
+  2377 ;;  data            1    wreg     unsigned char 
+  2378 ;; Auto vars:     Size  Location     Type
+  2379 ;;  data            1    0[COMMON] unsigned char 
+  2380 ;; Return value:  Size  Location     Type
+  2381 ;;		None               void
+  2382 ;; Registers used:
+  2383 ;;		wreg
+  2384 ;; Tracked objects:
+  2385 ;;		On entry : 0/0
+  2386 ;;		On exit  : 0/0
+  2387 ;;		Unchanged: 0/0
+  2388 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2389 ;;      Params:         0       0       0       0       0
+  2390 ;;      Locals:         1       0       0       0       0
+  2391 ;;      Temps:          0       0       0       0       0
+  2392 ;;      Totals:         1       0       0       0       0
+  2393 ;;Total ram usage:        1 bytes
+  2394 ;; Hardware stack levels used:    1
+  2395 ;; This function calls:
+  2396 ;;		Nothing
+  2397 ;; This function is called by:
+  2398 ;;		_send_cmd
+  2399 ;; This function uses a non-reentrant model
+  2400 ;;
+  2401                           
+  2402                           
+  2403                           ;psect for function _uart_send
+  2404  00C8                     _uart_send:	
+  2405                           
+  2406                           ;incstack = 0
+  2407                           ; Regs used in _uart_send: [wreg]
+  2408                           ;uart_send@data stored from wreg
+  2409  00C8  00F0               	movwf	uart_send@data
+  2410  00C9                     l160:	
+  2411                           ;PR18.c: 412: while(TXIF==0);
+  2412                           
+  2413  00C9  1283               	bcf	3,5	;RP0=0, select bank0
+  2414  00CA  1303               	bcf	3,6	;RP1=0, select bank0
+  2415  00CB  1E0C               	btfss	12,4	;volatile
+  2416  00CC  28C9               	goto	l160
+  2417                           
+  2418                           ;PR18.c: 413: TXREG=data;
+  2419  00CD  0870               	movf	uart_send@data,w
+  2420  00CE  0099               	movwf	25	;volatile
+  2421  00CF  0008               	return
+  2422  00D0                     __end_of_uart_send:	
+  2423                           
+  2424                           	psect	text8
+  2425  00F8                     __ptext8:	
+  2426 ;; *************** function _send_string *****************
+  2427 ;; Defined at:
+  2428 ;;		line 406 in file "../../Source File/PR18.c"
+  2429 ;; Parameters:    Size  Location     Type
+  2430 ;;  s               1    wreg     PTR const unsigned char 
+  2431 ;;		 -> STR_9(8), STR_8(3), STR_7(9), STR_6(3), 
+  2432 ;;		 -> STR_5(15), STR_4(15), STR_3(3), STR_2(5), 
+  2433 ;;		 -> STR_1(13), 
+  2434 ;; Auto vars:     Size  Location     Type
+  2435 ;;  s               1   10[COMMON] PTR const unsigned char 
+  2436 ;;		 -> STR_9(8), STR_8(3), STR_7(9), STR_6(3), 
+  2437 ;;		 -> STR_5(15), STR_4(15), STR_3(3), STR_2(5), 
+  2438 ;;		 -> STR_1(13), 
+  2439 ;; Return value:  Size  Location     Type
+  2440 ;;		None               void
+  2441 ;; Registers used:
+  2442 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  2443 ;; Tracked objects:
+  2444 ;;		On entry : 0/0
+  2445 ;;		On exit  : 0/0
+  2446 ;;		Unchanged: 0/0
+  2447 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2448 ;;      Params:         0       0       0       0       0
+  2449 ;;      Locals:         1       0       0       0       0
+  2450 ;;      Temps:          1       0       0       0       0
+  2451 ;;      Totals:         2       0       0       0       0
+  2452 ;;Total ram usage:        2 bytes
+  2453 ;; Hardware stack levels used:    1
+  2454 ;; Hardware stack levels required when called:    2
+  2455 ;; This function calls:
+  2456 ;;		_send_char
+  2457 ;; This function is called by:
+  2458 ;;		_main
+  2459 ;;		_mode1
+  2460 ;;		_mode2
+  2461 ;; This function uses a non-reentrant model
+  2462 ;;
+  2463                           
+  2464                           
+  2465                           ;psect for function _send_string
+  2466  00F8                     _send_string:	
+  2467                           
+  2468                           ;incstack = 0
+  2469                           ; Regs used in _send_string: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  2470                           ;send_string@s stored from wreg
+  2471  00F8  00FA               	movwf	send_string@s
+  2472  00F9                     l1337:	
+  2473                           ;PR18.c: 407: while (s && *s)send_char (*s++);
+  2474                           
+  2475  00F9  087A               	movf	send_string@s,w
+  2476  00FA  1903               	btfsc	3,2
+  2477  00FB  0008               	return
+  2478  00FC  087A               	movf	send_string@s,w
+  2479  00FD  0084               	movwf	4
+  2480  00FE  120A  118A  2003   	fcall	stringdir
+      +       120A  118A         
+  2481  0103  3800               	iorlw	0
+  2482  0104  1903               	btfsc	3,2
+  2483  0105  0008               	return
+  2484  0106  087A               	movf	send_string@s,w
+  2485  0107  0084               	movwf	4
+  2486  0108  120A  118A  2003   	fcall	stringdir
+      +       120A  118A         
+  2487  010D  120A  118A  215E   	fcall	_send_char
+      +       120A  118A         
+  2488  0112  3001               	movlw	1
+  2489  0113  00F9               	movwf	??_send_string
+  2490  0114  0879               	movf	??_send_string,w
+  2491  0115  07FA               	addwf	send_string@s,f
+  2492  0116  28F9               	goto	l1337
+  2493  0117                     __end_of_send_string:	
+  2494                           
+  2495                           	psect	text9
+  2496  015E                     __ptext9:	
+  2497 ;; *************** function _send_char *****************
+  2498 ;; Defined at:
+  2499 ;;		line 376 in file "../../Source File/PR18.c"
+  2500 ;; Parameters:    Size  Location     Type
+  2501 ;;  data            1    wreg     unsigned char 
+  2502 ;; Auto vars:     Size  Location     Type
+  2503 ;;  data            1    8[COMMON] unsigned char 
+  2504 ;; Return value:  Size  Location     Type
+  2505 ;;		None               void
+  2506 ;; Registers used:
+  2507 ;;		wreg, status,2, status,0, pclath, cstack
+  2508 ;; Tracked objects:
+  2509 ;;		On entry : 0/0
+  2510 ;;		On exit  : 0/0
+  2511 ;;		Unchanged: 0/0
+  2512 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2513 ;;      Params:         0       0       0       0       0
+  2514 ;;      Locals:         1       0       0       0       0
+  2515 ;;      Temps:          0       0       0       0       0
+  2516 ;;      Totals:         1       0       0       0       0
+  2517 ;;Total ram usage:        1 bytes
+  2518 ;; Hardware stack levels used:    1
+  2519 ;; Hardware stack levels required when called:    1
+  2520 ;; This function calls:
+  2521 ;;		_delay
+  2522 ;; This function is called by:
+  2523 ;;		_mode1
+  2524 ;;		_mode2
+  2525 ;;		_send_string
+  2526 ;; This function uses a non-reentrant model
+  2527 ;;
+  2528                           
+  2529                           
+  2530                           ;psect for function _send_char
+  2531  015E                     _send_char:	
+  2532                           
+  2533                           ;incstack = 0
+  2534                           ; Regs used in _send_char: [wreg+status,2+status,0+pclath+cstack]
+  2535                           ;send_char@data stored from wreg
+  2536  015E  00F8               	movwf	send_char@data
+  2537                           
+  2538                           ;PR18.c: 377: RC4=0;
+  2539  015F  1283               	bcf	3,5	;RP0=0, select bank0
+  2540  0160  1303               	bcf	3,6	;RP1=0, select bank0
+  2541  0161  1207               	bcf	7,4	;volatile
+  2542                           
+  2543                           ;PR18.c: 378: RC3=1;
+  2544  0162  1587               	bsf	7,3	;volatile
+  2545                           
+  2546                           ;PR18.c: 379: PORTB=data;
+  2547  0163  0878               	movf	send_char@data,w
+  2548  0164  0086               	movwf	6	;volatile
+  2549                           
+  2550                           ;PR18.c: 380: RC5=1;
+  2551  0165  1687               	bsf	7,5	;volatile
+  2552                           
+  2553                           ;PR18.c: 381: delay(10);
+  2554  0166  3000               	movlw	0
+  2555  0167  00F3               	movwf	?_delay+3
+  2556  0168  3000               	movlw	0
+  2557  0169  00F2               	movwf	?_delay+2
+  2558  016A  3000               	movlw	0
+  2559  016B  00F1               	movwf	?_delay+1
+  2560  016C  300A               	movlw	10
+  2561  016D  00F0               	movwf	?_delay
+  2562  016E  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  2563                           
+  2564                           ;PR18.c: 382: RC5=0;
+  2565  0173  1283               	bcf	3,5	;RP0=0, select bank0
+  2566  0174  1303               	bcf	3,6	;RP1=0, select bank0
+  2567  0175  1287               	bcf	7,5	;volatile
+  2568                           
+  2569                           ;PR18.c: 383: delay(10);
+  2570  0176  3000               	movlw	0
+  2571  0177  00F3               	movwf	?_delay+3
+  2572  0178  3000               	movlw	0
+  2573  0179  00F2               	movwf	?_delay+2
+  2574  017A  3000               	movlw	0
+  2575  017B  00F1               	movwf	?_delay+1
+  2576  017C  300A               	movlw	10
+  2577  017D  00F0               	movwf	?_delay
+  2578  017E  120A  118A  2117   	fcall	_delay
+  2579  0181  0008               	return
+  2580  0182                     __end_of_send_char:	
+  2581                           
+  2582                           	psect	text10
+  2583  00E2                     __ptext10:	
+  2584 ;; *************** function _lcd_goto *****************
+  2585 ;; Defined at:
+  2586 ;;		line 387 in file "../../Source File/PR18.c"
+  2587 ;; Parameters:    Size  Location     Type
+  2588 ;;  data            1    wreg     unsigned char 
+  2589 ;; Auto vars:     Size  Location     Type
+  2590 ;;  data            1   10[COMMON] unsigned char 
+  2591 ;; Return value:  Size  Location     Type
+  2592 ;;		None               void
+  2593 ;; Registers used:
+  2594 ;;		wreg, status,2, status,0, pclath, cstack
+  2595 ;; Tracked objects:
+  2596 ;;		On entry : 0/0
+  2597 ;;		On exit  : 0/0
+  2598 ;;		Unchanged: 0/0
+  2599 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2600 ;;      Params:         0       0       0       0       0
+  2601 ;;      Locals:         1       0       0       0       0
+  2602 ;;      Temps:          1       0       0       0       0
+  2603 ;;      Totals:         2       0       0       0       0
+  2604 ;;Total ram usage:        2 bytes
+  2605 ;; Hardware stack levels used:    1
+  2606 ;; Hardware stack levels required when called:    2
+  2607 ;; This function calls:
+  2608 ;;		_send_config
+  2609 ;; This function is called by:
+  2610 ;;		_main
+  2611 ;;		_mode1
+  2612 ;;		_mode2
+  2613 ;; This function uses a non-reentrant model
+  2614 ;;
+  2615                           
+  2616                           
+  2617                           ;psect for function _lcd_goto
+  2618  00E2                     _lcd_goto:	
+  2619                           
+  2620                           ;incstack = 0
+  2621                           ; Regs used in _lcd_goto: [wreg+status,2+status,0+pclath+cstack]
+  2622                           ;lcd_goto@data stored from wreg
+  2623  00E2  00FA               	movwf	lcd_goto@data
+  2624                           
+  2625                           ;PR18.c: 388: if(data<16)
+  2626  00E3  3010               	movlw	16
+  2627  00E4  027A               	subwf	lcd_goto@data,w
+  2628  00E5  1803               	skipnc
+  2629  00E6  28ED               	goto	l1327
+  2630                           
+  2631                           ;PR18.c: 389: {
+  2632                           ;PR18.c: 390: send_config(0x80+data);
+  2633  00E7  087A               	movf	lcd_goto@data,w
+  2634  00E8  3E80               	addlw	128
+  2635  00E9  120A  118A  213A   	fcall	_send_config
+  2636                           
+  2637                           ;PR18.c: 391: }
+  2638  00EC  0008               	return
+  2639  00ED                     l1327:	
+  2640                           
+  2641                           ;PR18.c: 392: else
+  2642                           ;PR18.c: 393: {
+  2643                           ;PR18.c: 394: data=data-20;
+  2644  00ED  087A               	movf	lcd_goto@data,w
+  2645  00EE  3EEC               	addlw	236
+  2646  00EF  00F9               	movwf	??_lcd_goto
+  2647  00F0  0879               	movf	??_lcd_goto,w
+  2648  00F1  00FA               	movwf	lcd_goto@data
+  2649                           
+  2650                           ;PR18.c: 395: send_config(0xc0+data);
+  2651  00F2  087A               	movf	lcd_goto@data,w
+  2652  00F3  3EC0               	addlw	192
+  2653  00F4  120A  118A  213A   	fcall	_send_config
+  2654  00F7  0008               	return
+  2655  00F8                     __end_of_lcd_goto:	
+  2656                           
+  2657                           	psect	text11
+  2658  013A                     __ptext11:	
+  2659 ;; *************** function _send_config *****************
+  2660 ;; Defined at:
+  2661 ;;		line 365 in file "../../Source File/PR18.c"
+  2662 ;; Parameters:    Size  Location     Type
+  2663 ;;  data            1    wreg     unsigned char 
+  2664 ;; Auto vars:     Size  Location     Type
+  2665 ;;  data            1    8[COMMON] unsigned char 
+  2666 ;; Return value:  Size  Location     Type
+  2667 ;;		None               void
+  2668 ;; Registers used:
+  2669 ;;		wreg, status,2, status,0, pclath, cstack
+  2670 ;; Tracked objects:
+  2671 ;;		On entry : 0/0
+  2672 ;;		On exit  : 0/0
+  2673 ;;		Unchanged: 0/0
+  2674 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2675 ;;      Params:         0       0       0       0       0
+  2676 ;;      Locals:         1       0       0       0       0
+  2677 ;;      Temps:          0       0       0       0       0
+  2678 ;;      Totals:         1       0       0       0       0
+  2679 ;;Total ram usage:        1 bytes
+  2680 ;; Hardware stack levels used:    1
+  2681 ;; Hardware stack levels required when called:    1
+  2682 ;; This function calls:
+  2683 ;;		_delay
+  2684 ;; This function is called by:
+  2685 ;;		_main
+  2686 ;;		_lcd_goto
+  2687 ;;		_lcd_clr
+  2688 ;; This function uses a non-reentrant model
+  2689 ;;
+  2690                           
+  2691                           
+  2692                           ;psect for function _send_config
+  2693  013A                     _send_config:	
+  2694                           
+  2695                           ;incstack = 0
+  2696                           ; Regs used in _send_config: [wreg+status,2+status,0+pclath+cstack]
+  2697                           ;send_config@data stored from wreg
+  2698  013A  00F8               	movwf	send_config@data
+  2699                           
+  2700                           ;PR18.c: 366: RC4=0;
+  2701  013B  1283               	bcf	3,5	;RP0=0, select bank0
+  2702  013C  1303               	bcf	3,6	;RP1=0, select bank0
+  2703  013D  1207               	bcf	7,4	;volatile
+  2704                           
+  2705                           ;PR18.c: 367: RC3=0;
+  2706  013E  1187               	bcf	7,3	;volatile
+  2707                           
+  2708                           ;PR18.c: 368: PORTB=data;
+  2709  013F  0878               	movf	send_config@data,w
+  2710  0140  0086               	movwf	6	;volatile
+  2711                           
+  2712                           ;PR18.c: 369: RC5=1;
+  2713  0141  1687               	bsf	7,5	;volatile
+  2714                           
+  2715                           ;PR18.c: 370: delay(50);
+  2716  0142  3000               	movlw	0
+  2717  0143  00F3               	movwf	?_delay+3
+  2718  0144  3000               	movlw	0
+  2719  0145  00F2               	movwf	?_delay+2
+  2720  0146  3000               	movlw	0
+  2721  0147  00F1               	movwf	?_delay+1
+  2722  0148  3032               	movlw	50
+  2723  0149  00F0               	movwf	?_delay
+  2724  014A  120A  118A  2117   	fcall	_delay
+      +       120A  118A         
+  2725                           
+  2726                           ;PR18.c: 371: RC5=0;
+  2727  014F  1283               	bcf	3,5	;RP0=0, select bank0
+  2728  0150  1303               	bcf	3,6	;RP1=0, select bank0
+  2729  0151  1287               	bcf	7,5	;volatile
+  2730                           
+  2731                           ;PR18.c: 372: delay(50);
+  2732  0152  3000               	movlw	0
+  2733  0153  00F3               	movwf	?_delay+3
+  2734  0154  3000               	movlw	0
+  2735  0155  00F2               	movwf	?_delay+2
+  2736  0156  3000               	movlw	0
+  2737  0157  00F1               	movwf	?_delay+1
+  2738  0158  3032               	movlw	50
+  2739  0159  00F0               	movwf	?_delay
+  2740  015A  120A  118A  2117   	fcall	_delay
+  2741  015D  0008               	return
+  2742  015E                     __end_of_send_config:	
+  2743                           
+  2744                           	psect	text12
+  2745  0117                     __ptext12:	
+  2746 ;; *************** function _delay *****************
+  2747 ;; Defined at:
+  2748 ;;		line 360 in file "../../Source File/PR18.c"
+  2749 ;; Parameters:    Size  Location     Type
+  2750 ;;  data            4    0[COMMON] unsigned long 
+  2751 ;; Auto vars:     Size  Location     Type
+  2752 ;;		None
+  2753 ;; Return value:  Size  Location     Type
+  2754 ;;		None               void
+  2755 ;; Registers used:
+  2756 ;;		wreg
+  2757 ;; Tracked objects:
+  2758 ;;		On entry : 0/0
+  2759 ;;		On exit  : 0/0
+  2760 ;;		Unchanged: 0/0
+  2761 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2762 ;;      Params:         4       0       0       0       0
+  2763 ;;      Locals:         0       0       0       0       0
+  2764 ;;      Temps:          4       0       0       0       0
+  2765 ;;      Totals:         8       0       0       0       0
+  2766 ;;Total ram usage:        8 bytes
+  2767 ;; Hardware stack levels used:    1
+  2768 ;; This function calls:
+  2769 ;;		Nothing
+  2770 ;; This function is called by:
+  2771 ;;		_main
+  2772 ;;		_mode1
+  2773 ;;		_mode2
+  2774 ;;		_send_config
+  2775 ;;		_send_char
+  2776 ;;		_lcd_clr
+  2777 ;; This function uses a non-reentrant model
+  2778 ;;
+  2779                           
+  2780                           
+  2781                           ;psect for function _delay
+  2782  0117                     _delay:	
+  2783                           
+  2784                           ;PR18.c: 361: for( ;data>0;data--);
+  2785                           
+  2786                           ;incstack = 0
+  2787                           ; Regs used in _delay: [wreg]
+  2788  0117  0873               	movf	delay@data+3,w
+  2789  0118  0472               	iorwf	delay@data+2,w
+  2790  0119  0471               	iorwf	delay@data+1,w
+  2791  011A  0470               	iorwf	delay@data,w
+  2792  011B  1903               	btfsc	3,2
+  2793  011C  0008               	return
+  2794  011D  3001               	movlw	1
+  2795  011E  00F4               	movwf	??_delay
+  2796  011F  3000               	movlw	0
+  2797  0120  00F5               	movwf	??_delay+1
+  2798  0121  3000               	movlw	0
+  2799  0122  00F6               	movwf	??_delay+2
+  2800  0123  3000               	movlw	0
+  2801  0124  00F7               	movwf	??_delay+3
+  2802  0125  0874               	movf	??_delay,w
+  2803  0126  02F0               	subwf	delay@data,f
+  2804  0127  0875               	movf	??_delay+1,w
+  2805  0128  1C03               	skipc
+  2806  0129  0F75               	incfsz	??_delay+1,w
+  2807  012A  292C               	goto	u495
+  2808  012B  292D               	goto	u496
+  2809  012C                     u495:	
+  2810  012C  02F1               	subwf	delay@data+1,f
+  2811  012D                     u496:	
+  2812  012D  0876               	movf	??_delay+2,w
+  2813  012E  1C03               	skipc
+  2814  012F  0F76               	incfsz	??_delay+2,w
+  2815  0130  2932               	goto	u497
+  2816  0131  2933               	goto	u498
+  2817  0132                     u497:	
+  2818  0132  02F2               	subwf	delay@data+2,f
+  2819  0133                     u498:	
+  2820  0133  0877               	movf	??_delay+3,w
+  2821  0134  1C03               	skipc
+  2822  0135  0F77               	incfsz	??_delay+3,w
+  2823  0136  2938               	goto	u499
+  2824  0137  2917               	goto	_delay
+  2825  0138                     u499:	
+  2826  0138  02F3               	subwf	delay@data+3,f
+  2827  0139  2917               	goto	_delay
+  2828  013A                     __end_of_delay:	
+  2829  007E                     btemp	set	126	;btemp
+  2830  007E                     wtemp0	set	126
+
+
+Data Sizes:
+    Strings     68
+    Constant    0
+    Data        0
+    BSS         1
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14     14      14
+    BANK0            80     10      11
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    ?___awmod	int  size(1) Largest target is 0
+
+    ?___awdiv	int  size(1) Largest target is 0
+
+    send_string@s	PTR const unsigned char  size(1) Largest target is 15
+		 -> STR_9(CODE[8]), STR_8(CODE[3]), STR_7(CODE[9]), STR_6(CODE[3]), 
+		 -> STR_5(CODE[15]), STR_4(CODE[15]), STR_3(CODE[3]), STR_2(CODE[5]), 
+		 -> STR_1(CODE[13]), 
+
+
+Critical Paths under _main in COMMON
+
+    _main->_mode2
+    _mode2->___awdiv
+    ___awdiv->___awmod
+    _lcd_clr->_send_config
+    _mode1->_lcd_goto
+    _mode1->_send_string
+    _mode1->_send_cmd
+    _send_cmd->_uart_send
+    _send_string->_send_char
+    _send_char->_delay
+    _lcd_goto->_send_config
+    _send_config->_delay
+
+Critical Paths under _main in BANK0
+
+    _main->_mode2
+    _mode2->___awdiv
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 1     1      0    2882
+                                              9 BANK0      1     1      0
+                        _send_config
+                            _lcd_clr
+                           _lcd_goto
+                        _send_string
+                           _send_cmd
+                              _delay
+                              _mode1
+                              _mode2
+ ---------------------------------------------------------------------------------
+ (1) _mode2                                                7     7      0    1650
+                                             12 COMMON     2     2      0
+                                              4 BANK0      5     5      0
+                            _lcd_clr
+                           _lcd_goto
+                        _send_string
+                           _send_cmd
+                              _delay
+                          _send_char
+                            ___awdiv
+                            ___awmod
+ ---------------------------------------------------------------------------------
+ (2) ___awmod                                              7     3      4     296
+                                              0 COMMON     7     3      4
+ ---------------------------------------------------------------------------------
+ (2) ___awdiv                                              9     5      4     300
+                                              7 COMMON     5     1      4
+                                              0 BANK0      4     4      0
+                            ___awmod (ARG)
+ ---------------------------------------------------------------------------------
+ (2) _lcd_clr                                              0     0      0     112
+                        _send_config
+                              _delay
+ ---------------------------------------------------------------------------------
+ (1) _mode1                                                0     0      0     560
+                           _lcd_goto
+                        _send_string
+                           _send_cmd
+                              _delay
+                          _send_char
+ ---------------------------------------------------------------------------------
+ (2) _send_cmd                                            10     6      4     158
+                                              1 COMMON    10     6      4
+                          _uart_send
+ ---------------------------------------------------------------------------------
+ (3) _uart_send                                            1     1      0      22
+                                              0 COMMON     1     1      0
+ ---------------------------------------------------------------------------------
+ (2) _send_string                                          2     2      0     134
+                                              9 COMMON     2     2      0
+                          _send_char
+ ---------------------------------------------------------------------------------
+ (2) _send_char                                            1     1      0      67
+                                              8 COMMON     1     1      0
+                              _delay
+ ---------------------------------------------------------------------------------
+ (2) _lcd_goto                                             2     2      0     156
+                                              9 COMMON     2     2      0
+                        _send_config
+ ---------------------------------------------------------------------------------
+ (3) _send_config                                          1     1      0      67
+                                              8 COMMON     1     1      0
+                              _delay
+ ---------------------------------------------------------------------------------
+ (3) _delay                                                8     4      4      45
+                                              0 COMMON     8     4      4
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _send_config
+     _delay
+   _lcd_clr
+     _send_config
+       _delay
+     _delay
+   _lcd_goto
+     _send_config
+       _delay
+   _send_string
+     _send_char
+       _delay
+   _send_cmd
+     _uart_send
+   _delay
+   _mode1
+     _lcd_goto
+       _send_config
+         _delay
+     _send_string
+       _send_char
+         _delay
+     _send_cmd
+       _uart_send
+     _delay
+     _send_char
+       _delay
+   _mode2
+     _lcd_clr
+       _send_config
+         _delay
+       _delay
+     _lcd_goto
+       _send_config
+         _delay
+     _send_string
+       _send_char
+         _delay
+     _send_cmd
+       _uart_send
+     _delay
+     _send_char
+       _delay
+     ___awdiv
+       ___awmod (ARG)
+     ___awmod
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            E      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMMON               E      E       E       1      100.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       4       2        0.0%
+ABS                  0      0      19       3        0.0%
+BITBANK0            50      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+BANK0               50      A       B       5       13.8%
+BITSFR2              0      0       0       5        0.0%
+SFR2                 0      0       0       5        0.0%
+BITBANK1            50      0       0       6        0.0%
+BANK1               50      0       0       7        0.0%
+BITBANK3            60      0       0       8        0.0%
+BANK3               60      0       0       9        0.0%
+BITBANK2            60      0       0      10        0.0%
+BANK2               60      0       0      11        0.0%
+DATA                 0      0      1D      12        0.0%
+
+
+Microchip Technology PIC Macro Assembler V1.21 build 54009 
+Symbol Table                                                                                   Wed Jul 22 14:15:39 2015
+
+                      pc 0002              __CFG_CP$OFF 0000                       l74 033E  
+                     l84 0382             ___awdiv@sign 0021                       fsr 0004  
+                    l120 049D                      l113 044D                      l105 03E1  
+                    l125 055F                      l118 0488                      l160 00C9  
+                    _RA0 0028                      _RA1 0029                      _RA2 002A  
+                    _RC3 003B                      _RC4 003C                      _RC5 003D  
+                    _PR2 0092             __CFG_CPD$OFF 0000                      u615 018A  
+                    u555 01CB                      u495 012C                      u655 0220  
+                    u575 01DC                      u496 012D                      u497 0132  
+                    u585 01E5                      u498 0133                      u499 0138  
+                    u675 022C                      u835 047E                      u685 0238  
+                    u695 0242                      u855 0493                      u865 04A5  
+                    fsr0 0004             ___awmod@sign 0076             __CFG_FOSC$HS 0000  
+        send_config@data 0078             __CFG_LVP$OFF 0000                     l1301 021D  
+                   l1221 01C8                     l1213 01C2                     l1303 022B  
+                   l1223 01D6                     l1231 01EF                     l1313 024C  
+                   l1209 01BB                     l1235 01F7                     l1227 01E4  
+                   l1317 0254                     l1309 0241                     l1501 0544  
+                   l1327 00ED                     l1503 046F                     l1337 00F9  
+                   l1505 0552                     l1441 03AF                     l1601 0331  
+                   l1291 0215                     l1603 0375                     l1285 020A  
+                   l1613 03A0                     l1463 03EB                     l1471 03D4  
+                   l1607 0394                     l1473 0440                     l1609 039A  
+                   l1469 0400                     l1591 034F                     l1575 0320  
+                   l1593 0356                     l1597 035D                     l1589 0348  
+                   l1599 0367                     STR_1 0027                     STR_2 0045  
+                   STR_3 004A                     STR_4 0018                     STR_5 0009  
+                   STR_6 0015                     STR_7 0034                     STR_8 004A  
+                   STR_9 003D                     _BRGH 04C2                     _CREN 00C4  
+                   _SPEN 00C7                     _TXEN 04C5                     _TXIF 0064  
+           __CFG_WRT$OFF 0000                     _main 025B                     _mode 002A  
+                   btemp 007E             lcd_goto@data 007A                     start 0000  
+                  ?_main 0070          __end_of___awdiv 025B            __CFG_WDTE$OFF 0000  
+        __end_of___awmod 01FE          ___awdiv@divisor 0077                    _T2CON 0012  
+         __CFG_DEBUG$OFF 0000          ___awdiv@counter 0020                    _SPBRG 0099  
+                  _PORTB 0006                    _TRISA 0085                    _TRISB 0086  
+                  _TRISC 0087                    _TXREG 0019            __CFG_PWRTE$ON 0000  
+        __end_of_lcd_clr 00E2                    _delay 0117                    _mode1 0571  
+                  _mode2 03AB           __CFG_BOREN$OFF 0000                    pclath 000A  
+                  status 0003                    wtemp0 007E          mode2@value_temp 0026  
+        __initialization 07FB             __end_of_main 03AB                   ??_main 0029  
+                 ?_delay 0070             ?_send_config 0070                   _ADCON1 009F  
+                 ?_mode1 0070                   ?_mode2 0070                   _CCPR1L 0015  
+                 _CCPR2L 001B         ___awdiv@dividend 0079             ?_send_string 0070  
+       __end_of_lcd_goto 00F8                ??___awdiv 007B                ??___awmod 0074  
+       ___awdiv@quotient 0022          ___awmod@divisor 0070          ___awmod@counter 0075  
+              ??_lcd_clr 0079         __end_of_send_cmd 01B1             mode2@channel 0028  
+__end_of__initialization 07FC           __pcstackCOMMON 0070            __end_of_delay 013A  
+          __end_of_mode1 07FB            __end_of_mode2 0571                  ??_delay 0074  
+                ??_mode1 007B                  ??_mode2 007C               __pbssBANK0 002A  
+             __pmaintext 025B       __size_of_send_char 0024                  _CCP1CON 0017  
+                _CCP2CON 001D       __size_of_uart_send 0008       send_cmd@lower_byte 007A  
+            send_cmd@num 0078                ?_lcd_goto 0070               __stringtab 0003  
+   __size_of_send_config 0024     __size_of_send_string 001F                ?_send_cmd 0071  
+                ___awdiv 01FE                  ___awmod 01B1                  __ptext1 03AB  
+                __ptext2 01B1                  __ptext3 01FE                  __ptext4 00D0  
+                __ptext5 0571                  __ptext6 0182                  __ptext7 00C8  
+                __ptext8 00F8                  __ptext9 015E                  _lcd_clr 00D0  
+       ___awmod@dividend 0072               ??_lcd_goto 0079     end_of_initialization 07FC  
+      __end_of_send_char 0182        __end_of_uart_send 00D0               ??_send_cmd 0075  
+          send_char@data 0078      send_cmd@higher_byte 0079      start_initialization 07FB  
+             mode2@value 0024            __pcstackBANK0 0020      __end_of__stringdata 004D  
+      __size_of_lcd_goto 0016        __size_of_send_cmd 002F                 ?___awdiv 0077  
+               ?___awmod 0070                __pstrings 0003                 ?_lcd_clr 0070  
+          ??_send_config 0078           __size_of_delay 0023           __size_of_mode1 028A  
+         __size_of_mode2 01C6                delay@data 0070            ??_send_string 0079  
+              _send_char 015E             send_cmd@data 0071             send_cmd@ramp 0073  
+              _uart_send 00C8              __stringbase 0008              __stringdata 0009  
+    __end_of_send_config 015E               ?_send_char 0070             send_string@s 007A  
+    __end_of_send_string 0117               ?_uart_send 0070         __size_of___awdiv 005D  
+       __size_of___awmod 004D       __end_of__stringtab 0009         __size_of_lcd_clr 0012  
+               __ptext10 00E2                 __ptext11 013A                 __ptext12 0117  
+               _lcd_goto 00E2            __size_of_main 0150                 _send_cmd 0182  
+            _send_config 013A              _send_string 00F8              ??_send_char 0078  
+              stringcode 0003              ??_uart_send 0070            uart_send@data 0070  
+               stringdir 0003                 stringtab 0003  
