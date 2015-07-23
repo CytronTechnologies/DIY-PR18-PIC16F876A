@@ -1,0 +1,14 @@
+___awdiv: CODE, 383 0 118
+_mode1: CODE, 1373 0 675
+_delay: CODE, 184 0 48
+_send_cmd: CODE, 232 0 49
+_mode2: CODE, 865 0 508
+___awmod: CODE, 281 0 102
+_main: CODE, 501 0 364
+_lcd_clr: CODE, 4038 0 20
+_lcd_goto: CODE, 79 0 29
+_send_string: CODE, 108 0 38
+_send_config: CODE, 146 0 38
+_uart_send: CODE, 4026 0 12
+_send_char: CODE, 4058 0 38
+Total: 2039
